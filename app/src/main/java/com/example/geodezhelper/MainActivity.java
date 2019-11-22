@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new ListContentFragment(),"Нив. журнал");
         adapter.addFragment(new TileContentFragment(),"Нивелир");
         adapter.addFragment(new CardContentFragment(),"Точки");
+        adapter.addFragment(new FragmentForBaseline(),"Базовая линия");
         viewPager.setAdapter(adapter);
     }
     @Override

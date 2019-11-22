@@ -208,7 +208,7 @@
 
         </LinearLayout>
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/count_point_height"
+                android:id="@+id/save_bl"
                 style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
