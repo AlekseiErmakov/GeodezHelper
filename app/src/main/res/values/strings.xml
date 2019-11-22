@@ -11,10 +11,12 @@
     <string name="hint_text_Report_Rp">Отчет по рейке на репере,мм</string>
     <string name="hint_text_Report_Point">Отчет по рейке на точке,мм</string>
     <string name="button_label_enabled_Count">расчет</string>
-    <string name="hint_text_point_height">Отметка точки</string>
-    <string name="hint_text_Count_Point_Height">Определение отметки точки</string>
+    <string name="hint_text_point_height">Отметка точки,м</string>
+    <string name="Title_text_Count_Point_Height">Определение отметки точки</string>
     <string name="alert_format_text">неверный формат ввода</string>
-    <string name="point_height">Результат,м: </string>
+    <string name="Result_point_M">Результат,м: </string>
+    <string name="Result_point_MM">Результат,мм: </string>
+    <string name="Title_text_Count_Point_Report">Вынос точки</string>
 
 
 
