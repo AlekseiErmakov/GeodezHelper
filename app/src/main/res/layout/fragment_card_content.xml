@@ -135,5 +135,6 @@
                android:text="@string/button_label_enabled_Count"/>
        </androidx.coordinatorlayout.widget.CoordinatorLayout>
    </LinearLayout>
+
     </ScrollView>
 </FrameLayout>

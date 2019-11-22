@@ -26,7 +26,7 @@ public class CardContentFragment extends Fragment implements View.OnClickListene
     TextView Title,ResultText,Result,RphAlert,RprAlert,PrAlert;
     RadioButton FirstRB,SecondRB;
     TextInputLayout PointLayout;
-    private static final int thousand =1000;
+    private static final double thousand =1000;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -67,8 +67,8 @@ public class CardContentFragment extends Fragment implements View.OnClickListene
             switch (num){
                 case(1):
                     double rpH = myParseDouble(RpHeight,RphAlert);
-                    double rpR = myParseDouble(RpRepot,RprAlert)/(double)thousand;
-                    double pR =  myParseDouble(PointReport,PrAlert)/(double)thousand;
+                    double rpR = myParseDouble(RpRepot,RprAlert)/thousand;
+                    double pR =  myParseDouble(PointReport,PrAlert)/thousand;
                     result=String.format(Locale.ENGLISH,"%.3f",rpH+rpR-pR);
                     break;
                 case(2):
@@ -90,6 +90,7 @@ public class CardContentFragment extends Fragment implements View.OnClickListene
         }else {
             try {
                 result=Double.parseDouble(string);
+                System.out.println(result);
             }catch (NumberFormatException ex){
                 view.setVisibility(View.VISIBLE);
             }

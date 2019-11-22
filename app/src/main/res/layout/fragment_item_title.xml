@@ -1,13 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/text"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="?attr/selectableItemBackground"
-    android:paddingLeft="@dimen/list_item_spacing"
-    android:paddingTop="@dimen/list_item_spacing_half"
-    android:paddingRight="@dimen/list_item_spacing"
-    android:paddingBottom="@dimen/list_item_spacing_half"
-    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-    tools:text="Hello" />
+    android:layout_height="match_parent"
+    tools:context=".TileContentFragment">
+    <ScrollView
+        android:id="@+id/myview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp">
+            <TextView
+                android:id="@+id/text_view_TitleStraightLane"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_marginTop="15dp"
+                android:textSize="18sp"
+                android:text="@string/Title_StringLane" />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </Spinner>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/X_coord">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/X_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+             <TextView
+                android:id="@+id/view_HeightRpReport"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="-8dp"
+                android:layout_gravity="start"
+                android:paddingStart="5dp"
+                android:textSize="12sp"
+                android:textColor="@color/red_color"
+                android:text="@string/alert_format_text" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/Y_coord">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Y_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/view_RpReport1"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="-8dp"
+                android:layout_gravity="start"
+                android:paddingStart="5dp"
+                android:textSize="12sp"
+                android:textColor="@color/red_color"
+                android:text="@string/alert_format_text" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/point"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/H_coord">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/H_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/view_Report_Point"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="-8dp"
+                android:layout_gravity="start"
+                android:paddingStart="5dp"
+                android:textSize="12sp"
+                android:textColor="@color/red_color"
+                android:text="@string/alert_format_text" />
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
