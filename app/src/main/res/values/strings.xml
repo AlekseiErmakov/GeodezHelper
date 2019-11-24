@@ -31,6 +31,8 @@
     <string name="Point_two_Title">Вторая точка</string>
     <string name="Base_name">Название базовой линии</string>
     <string name="Save_button">Сохранить</string>
+    <string name="Default_point_name">UnName</string>
+
 
 
 </resources>

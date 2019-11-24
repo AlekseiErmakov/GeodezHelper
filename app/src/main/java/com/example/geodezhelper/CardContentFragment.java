@@ -26,7 +26,7 @@ public class CardContentFragment extends Fragment implements View.OnClickListene
     TextView Title,ResultText,Result,RphAlert,RprAlert,PrAlert;
     RadioButton FirstRB,SecondRB;
     TextInputLayout PointLayout;
-    private static final double thousand =1000;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -67,15 +67,15 @@ public class CardContentFragment extends Fragment implements View.OnClickListene
             switch (num){
                 case(1):
                     double rpH = myParseDouble(RpHeight,RphAlert);
-                    double rpR = myParseDouble(RpRepot,RprAlert)/thousand;
-                    double pR =  myParseDouble(PointReport,PrAlert)/thousand;
-                    result=String.format(Locale.ENGLISH,"%.3f",rpH+rpR-pR);
+                    double rpR = myParseDouble(RpRepot,RprAlert);
+                    double pR =  myParseDouble(PointReport,PrAlert);
+                    result = new NivPoint(pR,new NivPoint(rpH,rpR)).getHeightSrting();
                     break;
                 case(2):
                     rpH = myParseDouble(RpHeight,RphAlert);
-                    rpR = myParseDouble(RpRepot,RprAlert)/(double)thousand;
+                    rpR = myParseDouble(RpRepot,RprAlert);
                     pR =  myParseDouble(PointReport,PrAlert);
-                    result=String.format(Locale.ENGLISH,"%.0f",(rpH+rpR-pR)*1000);
+                    result = new NivPoint(pR).getRepString(new NivPoint(rpH,rpR));
                     break;
             }
            return result;
