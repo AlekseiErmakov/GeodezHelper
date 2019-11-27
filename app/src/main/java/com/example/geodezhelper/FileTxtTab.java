@@ -1,14 +1,13 @@
 package com.example.geodezhelper;
 
-import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 
-public class TabFile extends TotalStationFile{
+public class FileTxtTab extends FileTotalStation {
     private ArrayList<String> result;
     private ArrayList<Point> points;
     private int type;
 
-    public TabFile(ArrayList<Point>points,int type){
+    public FileTxtTab(ArrayList<Point>points, int type){
         this.points = points;
         this.type = type;
     }

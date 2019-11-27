@@ -3,6 +3,7 @@ package com.example.geodezhelper;
 import androidx.annotation.NonNull;
 
 import java.util.Locale;
+import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
 
 public class Point implements WordHolder{

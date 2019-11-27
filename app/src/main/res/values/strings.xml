@@ -3,7 +3,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Добавить репер</string>
     <string name="action_sort">Sort points</string>
     <string name="outlined_button_label_enabled">Sort points</string>
 
@@ -33,6 +33,11 @@
     <string name="Save_button">Сохранить</string>
     <string name="Default_point_name">UnName</string>
 
+
+    <string name="Title_level_reference">Высотный репер</string>
+    <string name="hint_name">Название</string>
+    <string name="hint_level">Отметка</string>
+    <string name="title_activity_second">SecondActivity</string>
 
 
 </resources>

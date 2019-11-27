@@ -13,6 +13,6 @@ public class TileContentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_item_title, null);
+        return inflater.inflate(R.layout.fragment_count_point_params, null);
     }
 }

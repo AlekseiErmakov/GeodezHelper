@@ -7,11 +7,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class GeodezFileReader {
+public class GeoFileReader {
         BufferedReader reader;
         String filename;
         ArrayList<String> Fromfile;
-        public GeodezFileReader(String filename){
+        public GeoFileReader(String filename){
             this.filename = filename;
             Fromfile = new ArrayList<>();
         }

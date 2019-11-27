@@ -1,11 +1,9 @@
 package com.example.geodezhelper;
 
-import android.graphics.Point;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +17,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.util.Locale;
 
 
-public class CardContentFragment extends Fragment implements View.OnClickListener {
+public class FragCountElev extends Fragment implements View.OnClickListener {
     private int chooseMethod=1;
     EditText RpHeight,RpRepot,PointReport;
     Button CountPointHeight;
@@ -30,7 +28,7 @@ public class CardContentFragment extends Fragment implements View.OnClickListene
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_card_content,container,false);
+        View view = inflater.inflate(R.layout.fragment_count_point_elevation,container,false);
         Title = (TextView)view.findViewById(R.id.text_view_HeightCount);
 
         RpHeight= (EditText)view.findViewById(R.id.RpHeight1);

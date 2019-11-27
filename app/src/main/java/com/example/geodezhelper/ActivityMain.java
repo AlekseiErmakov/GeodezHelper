@@ -1,7 +1,6 @@
 package com.example.geodezhelper;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -12,15 +11,11 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Context;
-import android.graphics.drawable.VectorDrawable;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MotionEvent;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -28,8 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity {
-
+public class ActivityMain extends AppCompatActivity {
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
 
-
         ActionBar supportActionBar = getSupportActionBar();
         if (supportActionBar !=null){
             VectorDrawableCompat indicator = VectorDrawableCompat.create(getResources(), R.drawable.ic_menu, getTheme());
@@ -52,14 +46,12 @@ public class MainActivity extends AppCompatActivity {
             supportActionBar.setHomeAsUpIndicator(indicator);
             supportActionBar.setDisplayHomeAsUpEnabled(true);
         }
-
     }
     public void setupViewPager(ViewPager viewPager){
         Adapter adapter = new Adapter(getSupportFragmentManager());
-        adapter.addFragment(new ListContentFragment(),"Нив. журнал");
-        adapter.addFragment(new TileContentFragment(),"Нивелир");
-        adapter.addFragment(new CardContentFragment(),"Точки");
-        adapter.addFragment(new FragmentForBaseline(),"Базовая линия");
+        adapter.addFragment(new FragListLevRef(),"Нивелир");
+        adapter.addFragment(new FragCountElev(),"Точки");
+        adapter.addFragment(new FragItemBL(),"Базовая линия");
         viewPager.setAdapter(adapter);
     }
     @Override
@@ -67,6 +59,19 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main,menu);
         return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        switch (id){
+            case R.id.action_settings:
+                Intent intent = new Intent(ActivityMain.this,ActivityListLevRef.class);
+                startActivity(intent);
+                return true;
+        }
+        return true;
+    }
+
     static class Adapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();

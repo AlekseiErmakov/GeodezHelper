@@ -1,7 +1,5 @@
 package com.example.geodezhelper;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,7 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
-public class FragmentForBaseline extends Fragment {
+public class FragItemBL extends Fragment {
     EditText x1text,y1text,h1text,x2text,y2text,h2text,nametext;
     Button saveBtn;
     TextView viewX1,viewY1,viewH1,viewX2,viewY2,viewH2;
@@ -23,7 +21,7 @@ public class FragmentForBaseline extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_frgment_for_baseline, container, false);
+        View v = inflater.inflate(R.layout.fragment_item_bl, container, false);
 
         nametext=(EditText)v.findViewById(R.id.b_name_text);
 

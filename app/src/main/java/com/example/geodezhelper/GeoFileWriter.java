@@ -1,18 +1,15 @@
 package com.example.geodezhelper;
 
-import java.io.BufferedWriter;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.net.PortUnreachableException;
 import java.util.ArrayList;
 
-public class GeodezFileWriter {
-    private TotalStationFile tsfile;
+public class GeoFileWriter {
+    private FileTotalStation tsfile;
     String filename;
     private FileOutputStream writer;
 
-    public GeodezFileWriter(TotalStationFile tsfile,String filename){
+    public GeoFileWriter(FileTotalStation tsfile, String filename){
         this.tsfile = tsfile;
         this.filename = filename;
     }

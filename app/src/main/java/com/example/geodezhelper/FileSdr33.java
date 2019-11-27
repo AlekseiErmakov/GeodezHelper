@@ -8,13 +8,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-public class Sdr33File  implements WordHolder{
+public class FileSdr33 extends FileTotalStation implements WordHolder{
     private Date date;
     private String TotalStation,TsNum,Serie,time,hight,job;
     private ArrayList<Point> points;
     private ArrayList<String> result,Hat;
 
-    public Sdr33File(Date date, String totalStation,String TsNum,String Serie,String hight, ArrayList<Point> points, String job) {
+    public FileSdr33(Date date, String totalStation, String TsNum, String Serie, String hight, ArrayList<Point> points, String job) {
         this.date = date;
         this.TotalStation = totalStation;
         this.points = points;
