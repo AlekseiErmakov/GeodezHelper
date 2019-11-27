@@ -49,9 +49,9 @@ public class ActivityMain extends AppCompatActivity {
     }
     public void setupViewPager(ViewPager viewPager){
         Adapter adapter = new Adapter(getSupportFragmentManager());
-        adapter.addFragment(new FragListLevRef(),"Нивелир");
-        adapter.addFragment(new FragCountElev(),"Точки");
-        adapter.addFragment(new FragItemBL(),"Базовая линия");
+
+        adapter.addFragment(new FragCountElev(),"Нивелирование");
+        adapter.addFragment(new FragCountPointParams(),"Базовая линия");
         viewPager.setAdapter(adapter);
     }
     @Override
@@ -67,6 +67,10 @@ public class ActivityMain extends AppCompatActivity {
             case R.id.action_settings:
                 Intent intent = new Intent(ActivityMain.this,ActivityListLevRef.class);
                 startActivity(intent);
+                return true;
+            case R.id.action_sort:
+                Intent intent2 = new Intent(ActivityMain.this,ActivityListBL.class);
+                startActivity(intent2);
                 return true;
         }
         return true;
