@@ -38,7 +38,9 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/b_name_text"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
             <LinearLayout
@@ -65,7 +67,9 @@
                     android:id="@+id/X1_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <TextView
                     android:id="@+id/view_X1"
@@ -85,7 +89,9 @@
                     android:id="@+id/Y1_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <TextView
                     android:id="@+id/view_Y1"
@@ -105,7 +111,9 @@
                     android:id="@+id/H1_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <TextView
                     android:id="@+id/view_H1"
@@ -116,7 +124,9 @@
                     android:paddingStart="5dp"
                     android:textSize="12sp"
                     android:textColor="@color/red_color"
-                    android:text="@string/alert_format_text" />
+                    android:text="@string/alert_format_text"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -142,7 +152,9 @@
                     android:id="@+id/X2_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <TextView
                     android:id="@+id/view_X2"
@@ -162,7 +174,9 @@
                     android:id="@+id/Y2_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <TextView
                     android:id="@+id/view_Y2"
@@ -183,7 +197,9 @@
                     android:id="@+id/H2_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:imeOptions="actionDone"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <TextView
                     android:id="@+id/view_H2"

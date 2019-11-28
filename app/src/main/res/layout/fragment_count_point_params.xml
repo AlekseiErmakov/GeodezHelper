@@ -37,7 +37,9 @@
                     android:id="@+id/X_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"/>
                 </com.google.android.material.textfield.TextInputLayout>
              <TextView
                 android:id="@+id/view_HeightRpReport"
@@ -57,7 +59,9 @@
                     android:id="@+id/Y_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext" />
                 </com.google.android.material.textfield.TextInputLayout>
             <TextView
                 android:id="@+id/view_RpReport1"
@@ -79,7 +83,9 @@
                     android:id="@+id/H_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"/>
                 </com.google.android.material.textfield.TextInputLayout>
             <TextView
                 android:id="@+id/view_Report_Point"

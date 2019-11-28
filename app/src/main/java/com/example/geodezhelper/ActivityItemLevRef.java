@@ -13,7 +13,7 @@ import java.util.UUID;
 
 public class ActivityItemLevRef extends SingleFragmentActivity {
     public static final String EXTRA_LEV__REF_ID =
-            "com.example.geodezhelper.nivpoint_id";
+            "com.example.geodezhelper.lev_ref_id";
     public static Intent newIntent(Context packageContext, UUID levrefId) {
         Intent intent = new Intent(packageContext, ActivityItemLevRef.class);
         intent.putExtra(EXTRA_LEV__REF_ID,levrefId);
@@ -21,7 +21,9 @@ public class ActivityItemLevRef extends SingleFragmentActivity {
     }
     @Override
     protected Fragment createFragment() {
-        return new FragItemLevRef();
+        UUID levrefId= (UUID)getIntent()
+                .getSerializableExtra(EXTRA_LEV__REF_ID);
+        return FragItemLevRef.newInstance(levrefId);
     }
 
     @Override

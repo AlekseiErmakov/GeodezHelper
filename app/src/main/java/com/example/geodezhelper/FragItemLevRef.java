@@ -10,35 +10,64 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.UUID;
 
 
-public class FragItemLevRef extends Fragment {
+public class FragItemLevRef extends Fragment implements View.OnClickListener{
     EditText nameText,levelText;
     TextView levelview;
     Button saveBTN;
     private NivPoint nivPoint;
+    public static final String ARG_LEVREF_ID = "lev_ref_id";
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        UUID nivpointId = (UUID)getActivity().getIntent()
-                .getSerializableExtra(ActivityItemLevRef.EXTRA_LEV__REF_ID);
-        nivPoint=DataLevRef.getInstance(getActivity()).getLevRef(nivpointId);
+        UUID levrefId = (UUID) getArguments().getSerializable(ARG_LEVREF_ID);
+        nivPoint=DataLevRef.getInstance(getActivity()).getLevRef(levrefId);
 
     }
-
+    public static FragItemLevRef newInstance(UUID levrefId){
+        Bundle args = new Bundle();
+        args.putSerializable(ARG_LEVREF_ID,levrefId);
+        FragItemLevRef fragment = new FragItemLevRef();
+        fragment.setArguments(args);
+        return fragment;
+    }
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_item_level_refence,container,false);
 
         nameText = (EditText)v.findViewById(R.id.LR_name);
+        nameText.setText(nivPoint.getName());
         levelText = (EditText)v.findViewById(R.id.LR_level);
+        levelText.setText(nivPoint.getHeightSrting());
         levelview = (TextView)v.findViewById(R.id.view_level);
+        levelview.setVisibility(View.INVISIBLE);
         saveBTN = (Button)v.findViewById(R.id.save_LR);
-
-
-
+        saveBTN.setOnClickListener(this);
         return v;
+    }
+
+    @Override
+    public void onClick(View v) {
+        int command = v.getId();
+        switch (command){
+            case(R.id.save_LR):
+                updatedata();
+        }
+    }
+    public void updatedata(){
+        nivPoint.setName(String.valueOf(nameText.getText()));
+        double elevation;
+        try {
+            elevation = Double.parseDouble(String.valueOf(levelText.getText()));
+            nivPoint.setHeight(elevation);
+            levelview.setVisibility(View.INVISIBLE);
+            Toast.makeText(getActivity(), R.string.toast_data_update, Toast.LENGTH_SHORT).show();
+        }catch (Exception ex){
+            levelview.setVisibility(View.VISIBLE);
+        }
     }
 }
 

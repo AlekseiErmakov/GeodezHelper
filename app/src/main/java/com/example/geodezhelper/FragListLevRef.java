@@ -28,18 +28,30 @@ public class FragListLevRef extends Fragment {
         updateUI();
         return view;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateUI();
+    }
+
     private void updateUI(){
         DataLevRef dataLevRef = DataLevRef.getInstance(getActivity());
         List<NivPoint> levrefs = dataLevRef.getDataLevRef();
-        levRefAdapter = new LevRefAdapter(levrefs);
-        resView.setAdapter(levRefAdapter);
+        if (levRefAdapter==null){
+            levRefAdapter = new LevRefAdapter(levrefs);
+            resView.setAdapter(levRefAdapter);
+        }else {
+            levRefAdapter.notifyDataSetChanged();
+        }
+
     }
     private class LevRefHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView NameView;
         private TextView ElevView;
         private NivPoint MynivPoint;
         public LevRefHolder(LayoutInflater inflater, ViewGroup parent){
-            super(inflater.inflate(R.layout.item_lev_ref_list,parent,false));
+            super(inflater.inflate(R.layout.view_item_lev_ref_list,parent,false));
             itemView.setOnClickListener(this);
             NameView =(TextView)itemView.findViewById(R.id.lev_ref_name);
             ElevView =(TextView)itemView.findViewById(R.id.lev_ref_elev);
@@ -52,7 +64,7 @@ public class FragListLevRef extends Fragment {
 
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(getActivity(),ActivityItemLevRef.class);
+            Intent intent = ActivityItemLevRef.newIntent(getActivity(), MynivPoint.getId());
             startActivity(intent);
         }
 

@@ -1,6 +1,5 @@
 package com.example.geodezhelper;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -38,7 +37,7 @@ public class FragmentListBL extends Fragment {
         private TextView BLnameView;
         private Baseline baseline;
         public BaseLineHolder(LayoutInflater inflater, ViewGroup parent){
-            super(inflater.inflate(R.layout.item_base_line,parent,false));
+            super(inflater.inflate(R.layout.view_item_base_line,parent,false));
             itemView.setOnClickListener(this);
             BLnameView = (TextView)itemView.findViewById(R.id.base_line_name);
 
