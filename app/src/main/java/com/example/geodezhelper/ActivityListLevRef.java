@@ -1,12 +1,16 @@
 package com.example.geodezhelper;
 
+import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
 
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class ActivityListLevRef extends SingleFragmentActivity{
+public class ActivityListLevRef extends SingleFragmentActivity implements View.OnClickListener{
+
+
     @Override
     protected Fragment createFragment() {
         return new FragListLevRef();
@@ -15,6 +19,21 @@ public class ActivityListLevRef extends SingleFragmentActivity{
     @Override
     protected FloatingActionButton createFAB() {
         FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fab_list_lev_ref);
+         fab.setOnClickListener(this);
         return fab;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.fab_list_lev_ref :
+                DataLevRef levRefData = DataLevRef.getInstance(this);
+                levRefData.addLevRef();
+                NivPoint MynivPoint = levRefData.getLastAddLevRef();
+                Intent intent = ActivityItemLevRef.newIntent(this, MynivPoint.getId());
+                startActivity(intent);
+                break;
+        }
+
     }
 }

@@ -12,13 +12,6 @@ public class DataLevRef {
     private List<NivPoint> levrefs;
     private DataLevRef(Context context){
         levrefs = new ArrayList<>();
-        for (int i = 0;  i < 100; i++){
-            NivPoint nivPoint = new NivPoint();
-            nivPoint.setName("Rp№ "+ i);
-            nivPoint.setHeight(i+30.000);
-            levrefs.add(nivPoint);
-        }
-
     }
     public static DataLevRef getInstance(Context context){
         if(dataLevRef == null){
@@ -28,6 +21,15 @@ public class DataLevRef {
     }
     public List<NivPoint> getDataLevRef(){
         return levrefs;
+    }
+    public void addLevRef(){
+        levrefs.add(new NivPoint());
+    }
+    public void removeLevRef(){
+        levrefs.remove(levrefs.size()-1);
+    }
+    public NivPoint getLastAddLevRef(){
+        return levrefs.get(levrefs.size()-1);
     }
     public NivPoint getLevRef(UUID id){
         for (NivPoint nivPoint : levrefs){

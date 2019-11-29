@@ -9,9 +9,11 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.List;
 import java.util.UUID;
 
-public class ActivityItemLevRef extends SingleFragmentActivity {
+public class ActivityItemLevRef extends SingleFragmentActivity{
+    private List<NivPoint> levrefs;
     public static final String EXTRA_LEV__REF_ID =
             "com.example.geodezhelper.lev_ref_id";
     public static Intent newIntent(Context packageContext, UUID levrefId) {
