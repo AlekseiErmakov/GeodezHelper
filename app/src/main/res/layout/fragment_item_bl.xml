@@ -125,8 +125,7 @@
                     android:textSize="12sp"
                     android:textColor="@color/red_color"
                     android:text="@string/alert_format_text"
-                    android:singleLine="true"
-                    android:imeOptions="actionNext"/>
+                    android:singleLine="true" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
