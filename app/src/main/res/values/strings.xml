@@ -38,8 +38,12 @@
     <string name="hint_name">Название</string>
     <string name="hint_level">Отметка</string>
     <string name="title_activity_second">SecondActivity</string>
-    
+
     <string name="toast_data_update">Данные обновлены</string>
+
+
+    <string name="ic_back">назад</string>
+    <string name="ic_ok">готово</string>
 
 
 </resources>

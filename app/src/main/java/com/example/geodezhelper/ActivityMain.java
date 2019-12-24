@@ -14,9 +14,14 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.geodezhelper.BL.ActivityListBL;
+import com.example.geodezhelper.Count.FragCountElev;
+import com.example.geodezhelper.Count.FragCountPointParams;
+import com.example.geodezhelper.LR.ActivityListLevRef;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -46,6 +51,8 @@ public class ActivityMain extends AppCompatActivity {
             supportActionBar.setHomeAsUpIndicator(indicator);
             supportActionBar.setDisplayHomeAsUpEnabled(true);
         }
+        invalidateOptionsMenu();
+
     }
     public void setupViewPager(ViewPager viewPager){
         Adapter adapter = new Adapter(getSupportFragmentManager());
@@ -56,7 +63,11 @@ public class ActivityMain extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.menu_main,menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        MenuItem doneMenuItem = menu.findItem(R.id.action_done);
+        doneMenuItem.setVisible(false);
+
         return true;
     }
 
@@ -65,13 +76,14 @@ public class ActivityMain extends AppCompatActivity {
         int id = item.getItemId();
         switch (id){
             case R.id.action_settings:
-                Intent intent = new Intent(ActivityMain.this,ActivityListLevRef.class);
+                Intent intent = new Intent(ActivityMain.this, ActivityListLevRef.class);
                 startActivity(intent);
                 return true;
             case R.id.action_sort:
-                Intent intent2 = new Intent(ActivityMain.this,ActivityListBL.class);
+                Intent intent2 = new Intent(ActivityMain.this, ActivityListBL.class);
                 startActivity(intent2);
                 return true;
+
         }
         return true;
     }

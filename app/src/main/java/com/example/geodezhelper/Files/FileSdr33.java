@@ -1,14 +1,14 @@
-package com.example.geodezhelper;
+package com.example.geodezhelper.Files;
 
-import android.widget.Adapter;
+import com.example.geodezhelper.Pojo.Point;
+import com.example.geodezhelper.WordHolder;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-public class FileSdr33 extends FileTotalStation implements WordHolder{
+public class FileSdr33 extends FileTotalStation implements WordHolder {
     private Date date;
     private String TotalStation,TsNum,Serie,time,hight,job;
     private ArrayList<Point> points;

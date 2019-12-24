@@ -1,7 +1,9 @@
-package com.example.geodezhelper;
+package com.example.geodezhelper.BL;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.geodezhelper.R;
+import com.example.geodezhelper.SingleFragmentActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ActivityItemBL extends SingleFragmentActivity {

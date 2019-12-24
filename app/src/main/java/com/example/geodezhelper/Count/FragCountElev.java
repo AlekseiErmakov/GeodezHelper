@@ -1,4 +1,4 @@
-package com.example.geodezhelper;
+package com.example.geodezhelper.Count;
 
 import android.os.Bundle;
 
@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.example.geodezhelper.Pojo.NivPoint;
+import com.example.geodezhelper.R;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Locale;

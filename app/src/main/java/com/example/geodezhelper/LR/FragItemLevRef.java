@@ -1,4 +1,4 @@
-package com.example.geodezhelper;
+package com.example.geodezhelper.LR;
 
 import android.os.Bundle;
 
@@ -12,6 +12,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.geodezhelper.Pojo.NivPoint;
+import com.example.geodezhelper.R;
+
 import java.util.UUID;
 
 
@@ -20,7 +23,7 @@ public class FragItemLevRef extends Fragment implements View.OnClickListener{
     TextView levelview;
     Button saveBTN;
     private NivPoint nivPoint;
-    public static final String ARG_LEVREF_ID = "lev_ref_id";
+    private static final String ARG_LEVREF_ID = "lev_ref_id";
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

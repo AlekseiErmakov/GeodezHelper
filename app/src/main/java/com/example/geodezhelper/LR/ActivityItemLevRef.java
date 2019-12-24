@@ -1,18 +1,19 @@
-package com.example.geodezhelper;
+package com.example.geodezhelper.LR;
 
 import android.content.Context;
 import android.content.Intent;
-import android.view.Menu;
-import android.view.View;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.geodezhelper.Pojo.NivPoint;
+import com.example.geodezhelper.R;
+import com.example.geodezhelper.SingleFragmentActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 import java.util.UUID;
 
-public class ActivityItemLevRef extends SingleFragmentActivity{
+public class ActivityItemLevRef extends SingleFragmentActivity {
     private List<NivPoint> levrefs;
     public static final String EXTRA_LEV__REF_ID =
             "com.example.geodezhelper.lev_ref_id";

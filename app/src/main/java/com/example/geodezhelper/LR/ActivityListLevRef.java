@@ -1,11 +1,13 @@
-package com.example.geodezhelper;
+package com.example.geodezhelper.LR;
 
 import android.content.Intent;
-import android.view.Menu;
 import android.view.View;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.geodezhelper.Pojo.NivPoint;
+import com.example.geodezhelper.R;
+import com.example.geodezhelper.SingleFragmentActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ActivityListLevRef extends SingleFragmentActivity implements View.OnClickListener{

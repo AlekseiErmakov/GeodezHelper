@@ -1,4 +1,4 @@
-package com.example.geodezhelper;
+package com.example.geodezhelper.LR;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.geodezhelper.Pojo.NivPoint;
+import com.example.geodezhelper.R;
 
 import java.util.List;
 

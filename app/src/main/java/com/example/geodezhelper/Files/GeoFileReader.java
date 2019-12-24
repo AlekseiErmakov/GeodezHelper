@@ -1,4 +1,4 @@
-package com.example.geodezhelper;
+package com.example.geodezhelper.Files;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

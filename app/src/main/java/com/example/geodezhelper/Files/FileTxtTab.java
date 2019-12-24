@@ -1,4 +1,6 @@
-package com.example.geodezhelper;
+package com.example.geodezhelper.Files;
+
+import com.example.geodezhelper.Pojo.Point;
 
 import java.util.ArrayList;
 

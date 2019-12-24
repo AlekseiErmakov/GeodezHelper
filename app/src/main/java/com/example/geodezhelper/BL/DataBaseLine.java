@@ -1,4 +1,4 @@
-package com.example.geodezhelper;
+package com.example.geodezhelper.BL;
 
 import android.content.Context;
 

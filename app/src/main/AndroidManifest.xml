@@ -16,28 +16,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActivityItemLevRef">
+        <activity android:name=".LR.ActivityItemLevRef">
             <intent-filter>
                 <action android:name="android.intent.action.List" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActivityListLevRef">
+        <activity android:name=".LR.ActivityListLevRef">
             <intent-filter>
                 <action android:name="android.intent.action.item_ref" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActivityItemBL">
+        <activity android:name=".BL.ActivityItemBL">
             <intent-filter>
                 <action android:name="android.intent.action.item_bl" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActivityListBL">
+        <activity android:name=".BL.ActivityListBL">
             <intent-filter>
                 <action android:name="android.intent.action.list_bl" />
 

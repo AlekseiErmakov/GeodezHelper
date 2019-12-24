@@ -1,4 +1,6 @@
-package com.example.geodezhelper;
+package com.example.geodezhelper.BL;
+
+import com.example.geodezhelper.Pojo.Point;
 
 import java.util.UUID;
 

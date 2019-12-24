@@ -1,4 +1,4 @@
-package com.example.geodezhelper;
+package com.example.geodezhelper.Pojo;
 
 import java.util.Locale;
 import java.util.UUID;
