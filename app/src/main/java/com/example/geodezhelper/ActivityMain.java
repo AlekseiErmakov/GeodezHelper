@@ -46,7 +46,7 @@ public class ActivityMain extends AppCompatActivity {
 
         ActionBar supportActionBar = getSupportActionBar();
         if (supportActionBar !=null){
-            VectorDrawableCompat indicator = VectorDrawableCompat.create(getResources(), R.drawable.ic_menu, getTheme());
+            VectorDrawableCompat indicator = VectorDrawableCompat.create(getResources(), R.drawable.ic_left_menu, getTheme());
             indicator.setTint(ResourcesCompat.getColor(getResources(),R.color.white,getTheme()));
             supportActionBar.setHomeAsUpIndicator(indicator);
             supportActionBar.setDisplayHomeAsUpEnabled(true);
@@ -67,7 +67,6 @@ public class ActivityMain extends AppCompatActivity {
         inflater.inflate(R.menu.menu_main, menu);
         MenuItem doneMenuItem = menu.findItem(R.id.action_done);
         doneMenuItem.setVisible(false);
-
         return true;
     }
 

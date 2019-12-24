@@ -10,14 +10,14 @@ import java.util.concurrent.CountDownLatch;
 
 public class Point implements WordHolder {
     private String name,fromSdr,Code;
-    private double x,y,h;
+    private Double x,y,h;
 
     public Point(String fromSdr){
         this.fromSdr=fromSdr;
         sdrParser();
     }
 
-    public Point(double x, double y, double h) {
+    public Point(Double x, Double y, Double h) {
         this.x = x;
         this.y = y;
         this.h = h;
@@ -25,7 +25,7 @@ public class Point implements WordHolder {
         Code = DEFAULTPOINTCODE;
     }
 
-    public Point(String name, double x, double y, double h) {
+    public Point(String name, Double x, Double y, Double h) {
         this.name = name;
         this.x = x;
         this.y = y;
@@ -69,15 +69,15 @@ public class Point implements WordHolder {
         return name;
     }
 
-    public double getX() {
+    public Double getX() {
         return x;
     }
 
-    public double getY() {
+    public Double getY() {
         return y;
     }
 
-    public double getH() {
+    public Double getH() {
         return h;
     }
 
@@ -85,15 +85,15 @@ public class Point implements WordHolder {
         this.name = name;
     }
 
-    public void setX(double x) {
+    public void setX(Double x) {
         this.x = x;
     }
 
-    public void setY(double y) {
+    public void setY(Double y) {
         this.y = y;
     }
 
-    public void setH(double h) {
+    public void setH(Double h) {
         this.h = h;
     }
     public String getTotalStPoint(){

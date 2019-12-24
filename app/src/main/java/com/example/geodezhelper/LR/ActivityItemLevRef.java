@@ -2,8 +2,14 @@ package com.example.geodezhelper.LR;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 
 import com.example.geodezhelper.Pojo.NivPoint;
 import com.example.geodezhelper.R;
@@ -35,5 +41,19 @@ public class ActivityItemLevRef extends SingleFragmentActivity {
         fab.hide();
         return fab;
     }
+    @Override
+    protected ActionBar createToolbar() {
+        ActionBar supportActionBar = getSupportActionBar();
+        if (supportActionBar !=null){
+            VectorDrawableCompat indicator = VectorDrawableCompat.create(getResources(), R.drawable.ic_back_toolbar, getTheme());
+            indicator.setTint(ResourcesCompat.getColor(getResources(),R.color.white,getTheme()));
+            supportActionBar.setHomeAsUpIndicator(indicator);
+            supportActionBar.setDisplayHomeAsUpEnabled(true);
+        }
+        return supportActionBar;
+    }
+
+
+
 
 }

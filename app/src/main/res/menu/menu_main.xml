@@ -3,14 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ActivityMain">
-    <item
-        android:id="@+id/action_back"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_toolbar_back"
-        android:title="@string/ic_back"/>
+
     <item
         android:id="@+id/action_done"
         app:showAsAction="ifRoom"
+        android:imeOptions="actionDone"
         android:icon="@drawable/ic_toolbar_done"
         android:title="@string/ic_ok"/>
 

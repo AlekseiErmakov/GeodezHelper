@@ -8,7 +8,8 @@
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
+        app:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
+
         <include layout="@layout/toolbar" />
     </com.google.android.material.appbar.AppBarLayout>
 

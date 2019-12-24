@@ -104,6 +104,12 @@ public class FragItemBL extends Fragment {
         views.put(h2text,viewH2);
 
         saveBtn=(Button)v.findViewById(R.id.save_bl);
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateData();
+            }
+        });
         return v;
     }
     private void updateData(){
@@ -120,15 +126,15 @@ public class FragItemBL extends Fragment {
 
 
     }
-    private double updateCoord(EditText editText){
-        double result;
+    private Double updateCoord(EditText editText){
+        Double result = null;
         try {
             result = Double.parseDouble(editText.getText().toString());
             views.get(editText).setVisibility(View.INVISIBLE);
             return result;
         }catch (Exception ex){
             views.get(editText).setVisibility(View.VISIBLE);
-            return 0;
+            return result;
         }
     }
 
