@@ -45,5 +45,14 @@
     <string name="ic_back">назад</string>
     <string name="ic_ok">готово</string>
 
+    <string name="button_choose_lr">Репер</string>
+    <string name="button_choose_bl">Базовая линия</string>
+    <string name="p_rad">Радиус,м</string>
+    <string name="p_gor_length">Длина по горизонтали,м</string>
+    <string name="p_length">Длина,м</string>
+    <string name="p_dev">Смещение,м</string>
+    <string name="p_height">Превышение,м</string>
+
+
 
 </resources>

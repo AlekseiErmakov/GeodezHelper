@@ -13,8 +13,11 @@ public class Point implements WordHolder {
     private Double x,y,h;
 
     public Point(String fromSdr){
-        this.fromSdr=fromSdr;
-        sdrParser();
+        if (fromSdr!=null && !fromSdr.equals("")){
+            this.fromSdr=fromSdr;
+            sdrParser(fromSdr);
+        }
+
     }
 
     public Point(Double x, Double y, Double h) {
@@ -32,7 +35,7 @@ public class Point implements WordHolder {
         this.h = h;
         Code = DEFAULTPOINTCODE;
     }
-    private void sdrParser(){
+    private void sdrParser(String fromSdr){
         char[]coords = fromSdr.toCharArray();
         name="";
         String fixName="";
@@ -60,9 +63,11 @@ public class Point implements WordHolder {
     }
 
     private void setCoord(String[] list){
+        if (list.length>=3){
         x=Double.parseDouble(list[0]);
         y=Double.parseDouble(list[1]);
         h=Double.parseDouble(list[2]);
+        }
     }
 
     public String getName() {

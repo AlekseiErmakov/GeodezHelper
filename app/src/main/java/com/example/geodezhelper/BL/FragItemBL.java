@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.geodezhelper.R;
+import com.example.geodezhelper.StringUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -56,27 +57,27 @@ public class FragItemBL extends Fragment {
         nametext.setText(baseline.getName());
 
         x1text=(EditText)v.findViewById(R.id.X1_text);
-        x1text.setText(String.valueOf(baseline.pOne.getX()));
+        x1text.setText(StringUtils.coordTxt(baseline.pOne.getX()));
         textfields.add(x1text);
 
         y1text=(EditText)v.findViewById(R.id.Y1_text);
-        y1text.setText(String.valueOf(baseline.pOne.getY()));
+        y1text.setText(StringUtils.coordTxt(baseline.pOne.getY()));
         textfields.add(y1text);
 
         h1text=(EditText)v.findViewById(R.id.H1_text);
-        h1text.setText(String.valueOf(baseline.pOne.getH()));
+        h1text.setText(StringUtils.coordTxt(baseline.pOne.getH()));
         textfields.add(h1text);
 
         x2text=(EditText)v.findViewById(R.id.X2_text);
-        x2text.setText(String.valueOf(baseline.pTwo.getX()));
+        x2text.setText(StringUtils.coordTxt(baseline.pTwo.getX()));
         textfields.add(x2text);
 
         y2text=(EditText)v.findViewById(R.id.Y2_text);
-        y2text.setText(String.valueOf(baseline.pTwo.getY()));
+        y2text.setText(StringUtils.coordTxt(baseline.pTwo.getY()));
         textfields.add(y2text);
 
         h2text=(EditText)v.findViewById(R.id.H2_text);
-        h2text.setText(String.valueOf(baseline.pTwo.getH()));
+        h2text.setText(StringUtils.coordTxt(baseline.pTwo.getH()));
         textfields.add(h2text);
 
         viewX1=(TextView)v.findViewById(R.id.view_X1);

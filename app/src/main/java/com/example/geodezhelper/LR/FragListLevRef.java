@@ -15,8 +15,10 @@ import android.widget.TextView;
 
 import com.example.geodezhelper.Pojo.NivPoint;
 import com.example.geodezhelper.R;
+import com.example.geodezhelper.StringUtils;
 
 import java.util.List;
+import java.util.Locale;
 
 
 public class FragListLevRef extends Fragment {
@@ -49,7 +51,7 @@ public class FragListLevRef extends Fragment {
         }
 
     }
-    private class LevRefHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    private class LevRefHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
         private TextView NameView;
         private TextView ElevView;
         private NivPoint MynivPoint;
@@ -62,13 +64,19 @@ public class FragListLevRef extends Fragment {
         public void bind(NivPoint nivPoint){
             MynivPoint=nivPoint;
             NameView.setText(MynivPoint.getName());
-            ElevView.setText(MynivPoint.getHeightSrting());
+            ElevView.setText(StringUtils.coordTxt(MynivPoint.getHeight()));
         }
 
         @Override
         public void onClick(View v) {
             Intent intent = ActivityItemLevRef.newIntent(getActivity(), MynivPoint.getId());
             startActivity(intent);
+        }
+        @Override
+        public boolean onLongClick(View v) {
+            DataLevRef dataLevRef = DataLevRef.getInstance(getActivity());
+            dataLevRef.setCurrentID(MynivPoint.getId());
+            return true;
         }
 
     }

@@ -9,11 +9,10 @@ import java.util.UUID;
 public class DataBaseLine {
     private static DataBaseLine dataBaseLine;
     private List<Baseline> baselines;
+    private UUID currentID;
     private DataBaseLine(Context context){
         baselines = new ArrayList<>();
-        Baseline first = new Baseline();
-        first.setName("Третий тупиковый тоннель");
-        baselines.add(first);
+
     }
     public static DataBaseLine getInstance(Context context){
         if (dataBaseLine == null){
@@ -32,5 +31,11 @@ public class DataBaseLine {
             }
         }
         return null;
+    }
+    public void setCurrentID(UUID currentID){
+        this.currentID = currentID;
+    }
+    public UUID getCurrentID(){
+        return currentID;
     }
 }

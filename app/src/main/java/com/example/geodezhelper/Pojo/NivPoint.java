@@ -18,6 +18,7 @@ public class NivPoint {
         this.height=height;
         name = DefaultPointName;
     }
+
     public NivPoint(String name,double height){
         this.name = name;
         this.height = height;
@@ -37,16 +38,12 @@ public class NivPoint {
         this.report = report/Th;
         this.backPoint = backPoint;
         this.name = DefaultPointName;
-        calculateHeigt();
     }
     public NivPoint(String name,double report, NivPoint backPoint){
         this.report = report/Th;
         this.backPoint = backPoint;
         this.name = name;
-        calculateHeigt();
     }
-
-
     public void setName(String name){
         this.name=name;
     }
@@ -73,15 +70,7 @@ public class NivPoint {
     public double getHeight() {
         return height;
     }
-    private void calculateHeigt(){
-        height = backPoint.getHeight()+backPoint.getReport()-report;
-    }
-    public String getRepString(NivPoint backPoint){
-        report = (backPoint.getHeight()+backPoint.getReport()-height)*Th;
-        return String.format(Locale.ENGLISH,"%.0f",report);
-    }
-    public String getHeightSrting(){
-        return String.format(Locale.ENGLISH,"%.3f",height);
-    }
+
+
 
 }

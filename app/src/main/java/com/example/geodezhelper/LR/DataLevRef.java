@@ -11,6 +11,7 @@ import java.util.UUID;
 public class DataLevRef {
     private static DataLevRef dataLevRef;
     private List<NivPoint> levrefs;
+    private UUID currentID;
     private DataLevRef(Context context){
         levrefs = new ArrayList<>();
     }
@@ -35,6 +36,17 @@ public class DataLevRef {
     public NivPoint getLevRef(UUID id){
         for (NivPoint nivPoint : levrefs){
             if (nivPoint.getId().equals(id)){
+                return nivPoint;
+            }
+        }
+        return null;
+    }
+    public void setCurrentID(UUID currentID){
+        this.currentID = currentID;
+    }
+    public NivPoint getCurrentNivP(){
+        for (NivPoint nivPoint : levrefs){
+            if (nivPoint.getId().equals(currentID)){
                 return nivPoint;
             }
         }

@@ -21,6 +21,6 @@ String TSNum ="105485";
 String TSDEFAULT="SET250RX";
 String FOURTHZERO="0.000";
 String FIFTHSTART="03NM";
-
+String NOTENOUGHDATA = "Недостаточно данных";
 
 }

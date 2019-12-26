@@ -41,7 +41,12 @@
            android:layout_marginTop="15dp"
            android:textSize="18sp"
            android:text="@string/Title_text_Count_Point_Height" />
-
+       <com.google.android.material.button.MaterialButton
+           android:id="@+id/choose_lr"
+           style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="@string/button_choose_lr"/>
        <com.google.android.material.textfield.TextInputLayout
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
@@ -111,6 +116,7 @@
            android:textSize="12sp"
            android:textColor="@color/red_color"
            android:text="@string/alert_format_text" />
+
        <androidx.coordinatorlayout.widget.CoordinatorLayout
            android:layout_width="match_parent"
            android:layout_height="wrap_content"

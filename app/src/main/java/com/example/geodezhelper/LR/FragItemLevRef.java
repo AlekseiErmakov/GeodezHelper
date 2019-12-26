@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.geodezhelper.Pojo.NivPoint;
 import com.example.geodezhelper.R;
 
+import java.util.Locale;
 import java.util.UUID;
 
 
@@ -44,7 +45,7 @@ public class FragItemLevRef extends Fragment implements View.OnClickListener{
         nameText = (EditText)v.findViewById(R.id.LR_name);
         nameText.setText(nivPoint.getName());
         levelText = (EditText)v.findViewById(R.id.LR_level);
-        levelText.setText(nivPoint.getHeightSrting());
+        levelText.setText(String.format(Locale.ENGLISH,"%.3f",nivPoint.getHeight()));
         levelview = (TextView)v.findViewById(R.id.view_level);
         levelview.setVisibility(View.INVISIBLE);
         saveBTN = (Button)v.findViewById(R.id.save_LR);

@@ -24,15 +24,22 @@ public class Baseline {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if (name!=null && !name.equals("")) {
+            this.name = name;
+        }
     }
 
     public void setpOne(Point pOne) {
-        this.pOne = pOne;
+        if (pOne!=null) {
+            this.pOne = pOne;
+        }
     }
 
     public void setpTwo(Point pTwo) {
-        this.pTwo = pTwo;
+        if (pTwo!=null){
+            this.pTwo = pTwo;
+        }
+
     }
 
     public UUID getUuid() {
