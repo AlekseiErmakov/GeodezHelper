@@ -11,7 +11,9 @@ import java.util.concurrent.CountDownLatch;
 public class Point implements WordHolder {
     private String name,fromSdr,Code;
     private Double x,y,h;
+    public Point(){
 
+    }
     public Point(String fromSdr){
         if (fromSdr!=null && !fromSdr.equals("")){
             this.fromSdr=fromSdr;

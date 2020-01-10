@@ -20,14 +20,12 @@ public class ActivityListLevRef extends SingleFragmentActivity implements View.O
     protected Fragment createFragment() {
         return new FragListLevRef();
     }
-
     @Override
     protected FloatingActionButton createFAB() {
         FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fab_list_lev_ref);
          fab.setOnClickListener(this);
         return fab;
     }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -41,9 +39,6 @@ public class ActivityListLevRef extends SingleFragmentActivity implements View.O
         }
 
     }
-
-
-
     @Override
     protected ActionBar createToolbar() {
         ActionBar supportActionBar = getSupportActionBar();

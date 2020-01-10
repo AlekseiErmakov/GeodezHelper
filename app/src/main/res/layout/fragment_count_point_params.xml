@@ -22,7 +22,6 @@
                 android:layout_marginTop="15dp"
                 android:textSize="18sp"
                 android:text="@string/Title_StringLane" />
-
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -90,25 +89,19 @@
                 android:textSize="12sp"
                 android:textColor="@color/red_color"
                 android:text="@string/alert_format_text" />
-
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/choose_bl"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/button_choose_bl"/>
-            <androidx.coordinatorlayout.widget.CoordinatorLayout
-                android:layout_width="match_parent"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/count_point_params"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/count_point_params"
-                    style="@style/Widget.MaterialComponents.Button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:text="@string/button_label_enabled_Count"/>
-            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+                android:layout_gravity="right"
+                android:text="@string/button_label_enabled_Count"/>
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">

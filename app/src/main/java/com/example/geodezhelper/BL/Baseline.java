@@ -7,10 +7,12 @@ import java.util.UUID;
 public class Baseline {
     private UUID uuid;
     private String name;
-    Point pOne;
-    Point pTwo;
+    private Point pOne;
+    private Point pTwo;
     public Baseline(){
         uuid = UUID.randomUUID();
+        pOne = new Point();
+        pTwo = new Point();
     }
     public Baseline(String name, Point pOne, Point pTwo){
         uuid = UUID.randomUUID();

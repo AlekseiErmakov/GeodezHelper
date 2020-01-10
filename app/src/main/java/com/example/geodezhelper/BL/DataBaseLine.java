@@ -35,7 +35,22 @@ public class DataBaseLine {
     public void setCurrentID(UUID currentID){
         this.currentID = currentID;
     }
-    public UUID getCurrentID(){
-        return currentID;
+    public Baseline getCurrentBL(){
+        for (Baseline baseline : baselines){
+            if (baseline.getUuid().equals(currentID)){
+                return baseline;
+            }
+        }
+        return null;
+    }
+    public void addBL(){
+        baselines.add(new Baseline());
+    }
+    public Baseline getLastBL(){
+        Baseline baseline=null;
+        if (baselines.size()>0){
+            baseline=baselines.get(baselines.size()-1);
+        }
+        return baseline;
     }
 }

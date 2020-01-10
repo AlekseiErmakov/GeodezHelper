@@ -56,7 +56,7 @@ public class FragCountPointParams extends Fragment implements View.OnClickListen
         view = inflater.inflate(R.layout.fragment_count_point_params, null);
         views = new HashMap<>();
         dataBaseLine = DataBaseLine.getInstance(getActivity());
-        currentBL = dataBaseLine.getBaseline(dataBaseLine.getCurrentID());
+        currentBL = dataBaseLine.getCurrentBL();
 
         addEditTexts();
         addViews();
@@ -118,11 +118,14 @@ public class FragCountPointParams extends Fragment implements View.OnClickListen
         Double h = checkCoord(hText);
         if (x!=null && y!=null && h!=null){
         Point point = new Point(x,y,h);
+        currentBL = dataBaseLine.getCurrentBL();
             if (currentBL!=null){
+               System.out.println(currentBL.getName());
                stringResult = new StringResult(currentBL,point);
                updateView();
             } else {
                 stringResult = new StringResult();
+                System.out.println("пизда");
                 updateView();
             }
         }

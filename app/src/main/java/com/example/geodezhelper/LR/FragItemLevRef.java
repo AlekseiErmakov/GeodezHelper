@@ -20,9 +20,9 @@ import java.util.UUID;
 
 
 public class FragItemLevRef extends Fragment implements View.OnClickListener{
-    EditText nameText,levelText;
-    TextView levelview;
-    Button saveBTN;
+    private EditText nameText,levelText;
+    private TextView levelview;
+    private Button saveBTN;
     private NivPoint nivPoint;
     private static final String ARG_LEVREF_ID = "lev_ref_id";
     @Override

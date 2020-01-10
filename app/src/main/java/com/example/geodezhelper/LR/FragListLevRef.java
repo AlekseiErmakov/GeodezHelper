@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.geodezhelper.ActivityMain;
+import com.example.geodezhelper.BL.ActivityListBL;
 import com.example.geodezhelper.Pojo.NivPoint;
 import com.example.geodezhelper.R;
 import com.example.geodezhelper.StringUtils;
@@ -58,6 +60,7 @@ public class FragListLevRef extends Fragment {
         public LevRefHolder(LayoutInflater inflater, ViewGroup parent){
             super(inflater.inflate(R.layout.view_item_lev_ref_list,parent,false));
             itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(this);
             NameView =(TextView)itemView.findViewById(R.id.lev_ref_name);
             ElevView =(TextView)itemView.findViewById(R.id.lev_ref_elev);
         }
@@ -76,6 +79,9 @@ public class FragListLevRef extends Fragment {
         public boolean onLongClick(View v) {
             DataLevRef dataLevRef = DataLevRef.getInstance(getActivity());
             dataLevRef.setCurrentID(MynivPoint.getId());
+
+            Intent intent2 = new Intent(getActivity(), ActivityMain.class);
+            startActivity(intent2);
             return true;
         }
 

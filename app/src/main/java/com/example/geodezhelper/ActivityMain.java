@@ -20,7 +20,9 @@ import android.view.View;
 
 import com.example.geodezhelper.BL.ActivityListBL;
 import com.example.geodezhelper.Count.FragCountElev;
+import com.example.geodezhelper.Count.FragCountNiv;
 import com.example.geodezhelper.Count.FragCountPointParams;
+import com.example.geodezhelper.Count.FragCountRoundCenter;
 import com.example.geodezhelper.LR.ActivityListLevRef;
 import com.google.android.material.tabs.TabLayout;
 
@@ -59,6 +61,8 @@ public class ActivityMain extends AppCompatActivity {
 
         adapter.addFragment(new FragCountElev(),"Нивелирование");
         adapter.addFragment(new FragCountPointParams(),"Базовая линия");
+        adapter.addFragment(new FragCountRoundCenter(),"Центр круга");
+        adapter.addFragment(new FragCountNiv(),"Нивелирный ход");
         viewPager.setAdapter(adapter);
     }
     @Override

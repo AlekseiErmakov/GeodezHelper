@@ -53,6 +53,24 @@
     <string name="p_dev">Смещение,м</string>
     <string name="p_height">Превышение,м</string>
 
+    <string name="Title_count_round">Расчет усредненного центра круга</string>
+    <string name="button_add_point">Добавить точку</string>
+    <string name="button_count_round">Расчет центра</string>
+    <string name="t_v_radius">Усредненный радиус,м</string>
+
+
+    <string name="t_v_first_lev_ref">Начальный высотный репер</string>
+    <string name="but_import_lev_ref">Импорт</string>
+    <string name="but_add_station">Добавить станцию</string>
+    <string name="t_v_second_lev_ref">Конечный высотный репер</string>
+    <string name="but_equalise">Уравнять ход</string>
+
+    <string name="text_hint_station_name">Название станции</string>
+    <string name="text_hint_back_point_name">Название задней точки</string>
+    <string name="text_hint_point_report">Отчет по рейке</string>
+    <string name="but_add_dim">Добавить измерение</string>
+
+    <string name="text_hint_point_name">Название точки</string>
 
 
 </resources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Niv.FragItemNivDim">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/text_hint_point_name">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/point_name_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:imeOptions="actionDone"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/view_point_name_report"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="-8dp"
+            android:layout_gravity="start"
+            android:paddingStart="5dp"
+            android:textSize="12sp"
+            android:textColor="@color/red_color"
+            android:text="@string/alert_format_text" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/text_hint_point_report">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/back_point_name_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:singleLine="true"
+                android:imeOptions="actionDone"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/view_point_report"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="-8dp"
+            android:layout_gravity="start"
+            android:paddingStart="5dp"
+            android:textSize="12sp"
+            android:textColor="@color/red_color"
+            android:text="@string/alert_format_text" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save_dimension"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="@string/Save_button"/>
+    </LinearLayout>
+
+</FrameLayout>
