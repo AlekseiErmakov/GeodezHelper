@@ -36,6 +36,7 @@ public class ActivityItemBL extends SingleFragmentActivity {
     @Override
     protected FloatingActionButton createFAB() {
         FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fab_list_lev_ref);
+        fab.hide();
         return fab;
     }
     @Override

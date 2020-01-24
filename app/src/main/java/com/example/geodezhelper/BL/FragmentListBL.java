@@ -73,7 +73,6 @@ public class FragmentListBL extends Fragment {
         public boolean onLongClick(View v) {
             DataBaseLine dataBaseLine = DataBaseLine.getInstance(getActivity());
             dataBaseLine.setCurrentID(baseline.getUuid());
-            System.out.println(dataBaseLine.getCurrentBL().getName());
             Intent intent2 = new Intent(getActivity(), ActivityMain.class);
             startActivity(intent2);
             return true;

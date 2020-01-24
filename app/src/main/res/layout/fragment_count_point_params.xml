@@ -106,7 +106,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             </Spinner>
-            <LinearLayout
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -120,10 +120,9 @@
                     android:id="@+id/view_rad_report"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:layout_gravity="start"
-                    android:text="3.812" />
-            </LinearLayout>
-            <LinearLayout
+                    android:layout_gravity="end" />
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -138,11 +137,9 @@
                     android:id="@+id/view_gor_length_report"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:layout_marginTop="-8dp"
-                    android:layout_gravity="start"
-                    android:text="3.812" />
-            </LinearLayout>
-            <LinearLayout
+                    android:layout_gravity="end" />
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -157,11 +154,9 @@
                     android:id="@+id/view_length_report"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:layout_marginTop="-8dp"
-                    android:layout_gravity="start"
-                    android:text="3.812" />
-            </LinearLayout>
-            <LinearLayout
+                    android:layout_gravity="end" />
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -176,11 +171,9 @@
                     android:id="@+id/view_dev_report"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:layout_marginTop="-8dp"
-                    android:layout_gravity="start"
-                    android:text="3.812" />
-            </LinearLayout>
-            <LinearLayout
+                    android:layout_gravity="end" />
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -195,10 +188,8 @@
                     android:id="@+id/view_height_report"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:layout_marginTop="-8dp"
-                    android:layout_gravity="start"
-                    android:text="3.812" />
-            </LinearLayout>
+                    android:layout_gravity="end" />
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
         </LinearLayout>
     </ScrollView>
 </FrameLayout>
