@@ -11,6 +11,7 @@ import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 import com.example.geodezhelper.Pojo.NivPoint;
 import com.example.geodezhelper.R;
 import com.example.geodezhelper.SingleFragmentActivity;
+import com.example.geodezhelper.interfaces.MyData;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ActivityListLevRef extends SingleFragmentActivity implements View.OnClickListener{
@@ -31,9 +32,9 @@ public class ActivityListLevRef extends SingleFragmentActivity implements View.O
         switch (v.getId()){
             case R.id.fab_list_lev_ref :
                 DataLevRef levRefData = DataLevRef.getInstance(this);
-                levRefData.addLevRef();
-                NivPoint MynivPoint = levRefData.getLastAddLevRef();
-                Intent intent = ActivityItemLevRef.newIntent(this, MynivPoint.getId());
+                levRefData.addItem();
+                MyData myData = levRefData.getLastItem();
+                Intent intent = ActivityItemLevRef.newIntent(this, myData.getId());
                 startActivity(intent);
                 break;
         }

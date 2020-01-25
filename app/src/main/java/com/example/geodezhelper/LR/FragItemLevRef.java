@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.geodezhelper.Pojo.NivPoint;
 import com.example.geodezhelper.R;
+import com.example.geodezhelper.interfaces.MyNivData;
 
 import java.util.Locale;
 import java.util.UUID;
@@ -23,13 +24,13 @@ public class FragItemLevRef extends Fragment implements View.OnClickListener{
     private EditText nameText,levelText;
     private TextView levelview;
     private Button saveBTN;
-    private NivPoint nivPoint;
+    private MyNivData myNivData;
     private static final String ARG_LEVREF_ID = "lev_ref_id";
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         UUID levrefId = (UUID) getArguments().getSerializable(ARG_LEVREF_ID);
-        nivPoint=DataLevRef.getInstance(getActivity()).getLevRef(levrefId);
+        myNivData = (MyNivData) DataLevRef.getInstance(getActivity()).getItem(levrefId);
 
     }
     public static FragItemLevRef newInstance(UUID levrefId){
@@ -43,9 +44,9 @@ public class FragItemLevRef extends Fragment implements View.OnClickListener{
         View v = inflater.inflate(R.layout.fragment_item_level_refence,container,false);
 
         nameText = (EditText)v.findViewById(R.id.LR_name);
-        nameText.setText(nivPoint.getName());
+        nameText.setText(myNivData.getName());
         levelText = (EditText)v.findViewById(R.id.LR_level);
-        levelText.setText(String.format(Locale.ENGLISH,"%.3f",nivPoint.getHeight()));
+        levelText.setText(String.format(Locale.ENGLISH,"%.3f",myNivData.getHeight()));
         levelview = (TextView)v.findViewById(R.id.view_level);
         levelview.setVisibility(View.INVISIBLE);
         saveBTN = (Button)v.findViewById(R.id.save_LR);
@@ -62,11 +63,11 @@ public class FragItemLevRef extends Fragment implements View.OnClickListener{
         }
     }
     public void updatedata(){
-        nivPoint.setName(String.valueOf(nameText.getText()));
+        myNivData.setName(String.valueOf(nameText.getText()));
         double elevation;
         try {
             elevation = Double.parseDouble(String.valueOf(levelText.getText()));
-            nivPoint.setHeight(elevation);
+            myNivData.setHeight(elevation);
             levelview.setVisibility(View.INVISIBLE);
             Toast.makeText(getActivity(), R.string.toast_data_update, Toast.LENGTH_SHORT).show();
         }catch (Exception ex){

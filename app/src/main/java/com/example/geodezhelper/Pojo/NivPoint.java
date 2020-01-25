@@ -1,11 +1,12 @@
 package com.example.geodezhelper.Pojo;
 
 import com.example.geodezhelper.interfaces.MyData;
+import com.example.geodezhelper.interfaces.MyNivData;
 
 import java.util.Locale;
 import java.util.UUID;
 
-public class NivPoint implements MyData {
+public class NivPoint implements MyNivData {
     private double report;
     private double height;
     private String name;

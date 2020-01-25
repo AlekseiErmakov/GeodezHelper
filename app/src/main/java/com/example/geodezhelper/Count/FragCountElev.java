@@ -19,6 +19,8 @@ import com.example.geodezhelper.LR.DataLevRef;
 import com.example.geodezhelper.Pojo.NivPoint;
 import com.example.geodezhelper.R;
 import com.example.geodezhelper.StringUtils;
+import com.example.geodezhelper.interfaces.MyDataHolder;
+import com.example.geodezhelper.interfaces.MyNivData;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Locale;
@@ -32,14 +34,14 @@ public class FragCountElev extends Fragment implements View.OnClickListener {
     TextView Title,ResultText,Result,RphAlert,RprAlert,PrAlert;
     RadioButton FirstRB,SecondRB;
     TextInputLayout PointLayout;
-    DataLevRef dataLevRef;
+    MyDataHolder myDataHolder;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_count_point_elevation,container,false);
-        dataLevRef = DataLevRef.getInstance(getActivity());
+        myDataHolder = DataLevRef.getInstance(getActivity());
         Title = (TextView)view.findViewById(R.id.text_view_HeightCount);
 
         RpHeight= (EditText)view.findViewById(R.id.RpHeight1);
@@ -75,10 +77,10 @@ public class FragCountElev extends Fragment implements View.OnClickListener {
     }
     public String useDefaultHeight(){
 
-        NivPoint point = dataLevRef.getCurrentNivP();
+        MyNivData myNivData = (MyNivData) myDataHolder.getCurItem();
         String result = "";
-        if (point!=null){
-            result = StringUtils.coordTxt(point.getHeight());
+        if (myNivData != null){
+            result = StringUtils.coordTxt( myNivData .getHeight());
         }
         return result;
     }

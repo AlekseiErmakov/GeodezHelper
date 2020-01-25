@@ -18,12 +18,17 @@ import com.example.geodezhelper.BL.ActivityListBL;
 import com.example.geodezhelper.Pojo.NivPoint;
 import com.example.geodezhelper.R;
 import com.example.geodezhelper.StringUtils;
+import com.example.geodezhelper.interfaces.ItemFrag;
+import com.example.geodezhelper.interfaces.ListFrag;
+import com.example.geodezhelper.interfaces.MyData;
+import com.example.geodezhelper.interfaces.MyDataHolder;
+import com.example.geodezhelper.interfaces.MyNivData;
 
 import java.util.List;
-import java.util.Locale;
 
 
-public class FragListLevRef extends Fragment {
+
+public class FragListLevRef extends ListFrag {
     private RecyclerView resView;
     private LevRefAdapter levRefAdapter;
     @Override
@@ -35,18 +40,11 @@ public class FragListLevRef extends Fragment {
         updateUI();
         return view;
     }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        updateUI();
-    }
-
-    private void updateUI(){
+    public void updateUI(){
         DataLevRef dataLevRef = DataLevRef.getInstance(getActivity());
-        List<NivPoint> levrefs = dataLevRef.getDataLevRef();
+        List<MyData> myDatas = dataLevRef.getList();
         if (levRefAdapter==null){
-            levRefAdapter = new LevRefAdapter(levrefs);
+            levRefAdapter = new LevRefAdapter(myDatas);
             resView.setAdapter(levRefAdapter);
         }else {
             levRefAdapter.notifyDataSetChanged();
@@ -56,7 +54,7 @@ public class FragListLevRef extends Fragment {
     private class LevRefHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
         private TextView NameView;
         private TextView ElevView;
-        private NivPoint MynivPoint;
+        private MyNivData myNivData;
         public LevRefHolder(LayoutInflater inflater, ViewGroup parent){
             super(inflater.inflate(R.layout.view_item_lev_ref_list,parent,false));
             itemView.setOnClickListener(this);
@@ -64,21 +62,21 @@ public class FragListLevRef extends Fragment {
             NameView =(TextView)itemView.findViewById(R.id.lev_ref_name);
             ElevView =(TextView)itemView.findViewById(R.id.lev_ref_elev);
         }
-        public void bind(NivPoint nivPoint){
-            MynivPoint=nivPoint;
-            NameView.setText(MynivPoint.getName());
-            ElevView.setText(StringUtils.coordTxt(MynivPoint.getHeight()));
+        public void bind(MyData myData){
+            myNivData=(MyNivData) myData;
+            NameView.setText(myNivData.getName());
+            ElevView.setText(StringUtils.coordTxt(myNivData.getHeight()));
         }
 
         @Override
         public void onClick(View v) {
-            Intent intent = ActivityItemLevRef.newIntent(getActivity(), MynivPoint.getId());
+            Intent intent = ActivityItemLevRef.newIntent(getActivity(), myNivData.getId());
             startActivity(intent);
         }
         @Override
         public boolean onLongClick(View v) {
-            DataLevRef dataLevRef = DataLevRef.getInstance(getActivity());
-            dataLevRef.setCurrentID(MynivPoint.getId());
+            MyDataHolder myDataHolder = DataLevRef.getInstance(getActivity());
+            myDataHolder.setCurrentId(myNivData.getId());
 
             Intent intent2 = new Intent(getActivity(), ActivityMain.class);
             startActivity(intent2);
@@ -87,11 +85,10 @@ public class FragListLevRef extends Fragment {
 
     }
     private class LevRefAdapter extends RecyclerView.Adapter<LevRefHolder>{
-        private List<NivPoint> levrefs;
-        public LevRefAdapter(List<NivPoint> nivPoints){
-            levrefs=nivPoints;
+        private List<MyData> myDatas;
+        public LevRefAdapter(List<MyData> myDatas){
+            this.myDatas=myDatas;
         }
-
         @NonNull
         @Override
         public LevRefHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -99,16 +96,14 @@ public class FragListLevRef extends Fragment {
            return new LevRefHolder(layoutInflater,parent);
 
         }
-
         @Override
         public void onBindViewHolder(@NonNull LevRefHolder holder, int position) {
-            NivPoint levref = levrefs.get(position);
-            holder.bind(levref);
+            MyData myData = myDatas.get(position);
+            holder.bind(myData);
         }
-
         @Override
         public int getItemCount() {
-            return levrefs.size();
+            return myDatas.size();
         }
     }
 }
