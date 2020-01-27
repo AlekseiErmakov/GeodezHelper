@@ -4,190 +4,215 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Count.FragCountPointParams">
+
     <ScrollView
         android:id="@+id/myview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="15dp">
+
             <TextView
                 android:id="@+id/text_view_TitleStraightLane"
-                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:gravity="center"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:textSize="18sp"
-                android:text="@string/Title_StringLane" />
+                android:gravity="center"
+                android:text="@string/Title_StringLane"
+                android:textSize="18sp" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/X_coord">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/X_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:singleLine="true"
-                    android:imeOptions="actionNext"/>
-                </com.google.android.material.textfield.TextInputLayout>
-             <TextView
+                    android:imeOptions="actionNext"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
                 android:id="@+id/view_x_report"
-                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="-8dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="start"
+                android:layout_marginTop="-8dp"
                 android:paddingStart="5dp"
-                android:textSize="12sp"
+                android:text="@string/alert_format_text"
                 android:textColor="@color/red_color"
-                android:text="@string/alert_format_text" />
+                android:textSize="12sp" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/Y_coord">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/Y_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:singleLine="true"
-                    android:imeOptions="actionNext" />
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:imeOptions="actionNext"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
             <TextView
                 android:id="@+id/view_y_report"
-                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="-8dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="start"
+                android:layout_marginTop="-8dp"
                 android:paddingStart="5dp"
-                android:textSize="12sp"
+                android:text="@string/alert_format_text"
                 android:textColor="@color/red_color"
-                android:text="@string/alert_format_text" />
+                android:textSize="12sp" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/point"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/H_coord">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/H_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:singleLine="true"
-                    android:imeOptions="actionNext"/>
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:imeOptions="actionNext"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
             <TextView
                 android:id="@+id/view_h_report"
-                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="-8dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="start"
+                android:layout_marginTop="-8dp"
                 android:paddingStart="5dp"
-                android:textSize="12sp"
+                android:text="@string/alert_format_text"
                 android:textColor="@color/red_color"
-                android:text="@string/alert_format_text" />
+                android:textSize="12sp" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/choose_bl"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/button_choose_bl"/>
+                android:text="@string/button_choose_bl" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/count_point_params"
                 style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:text="@string/button_label_enabled_Count"/>
+                android:text="@string/button_label_enabled_Count" />
+
             <Spinner
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            </Spinner>
+                android:layout_height="wrap_content"></Spinner>
+
             <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/view_rad_name"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:text="@string/p_rad" />
+
                 <TextView
                     android:id="@+id/view_rad_report"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="end" />
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
             <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/view_got_length_name"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:text="@string/p_gor_length" />
+
                 <TextView
                     android:id="@+id/view_gor_length_report"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="end" />
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
             <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/view_length_name"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:text="@string/p_length" />
+
                 <TextView
                     android:id="@+id/view_length_report"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="end" />
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
             <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/view_dev_name"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:text="@string/p_dev" />
+
                 <TextView
                     android:id="@+id/view_dev_report"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="end" />
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
             <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/view_height_name"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:text="@string/p_height" />
+
                 <TextView
                     android:id="@+id/view_height_report"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="end" />
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
         </LinearLayout>

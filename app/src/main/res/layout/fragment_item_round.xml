@@ -4,75 +4,109 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RoundCenter.FragItemRoundPoint">
+
     <ScrollView
         android:id="@+id/myview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:scrollbarStyle="insideOverlay">
-                <com.google.android.material.textfield.TextInputLayout
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/text_hint_point_name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/point_r_name_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/X_coord">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/X1_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:singleLine="true"
-                        android:imeOptions="actionNext"/>
-                </com.google.android.material.textfield.TextInputLayout>
-                <TextView
-                    android:id="@+id/view_X1"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_marginTop="-8dp"
-                    android:layout_gravity="start"
-                    android:paddingStart="5dp"
-                    android:textSize="12sp"
-                    android:textColor="@color/red_color"
-                    android:text="@string/alert_format_text" />
-                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginTop="10dp"
+                    android:imeOptions="actionNext"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/view_round_p_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="-8dp"
+                android:paddingStart="5dp"
+                android:text="@string/alert_format_text"
+                android:textColor="@color/red_color"
+                android:textSize="12sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/X_coord">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/point_r_X_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/Y_coord">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/Y1_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:singleLine="true"
-                        android:imeOptions="actionNext"/>
-                </com.google.android.material.textfield.TextInputLayout>
-                <TextView
-                    android:id="@+id/view_Y1"
+                    android:layout_marginTop="10dp"
+                    android:imeOptions="actionNext"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/Yr_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="-8dp"
+                android:paddingStart="5dp"
+                android:text="@string/alert_format_text"
+                android:textColor="@color/red_color"
+                android:textSize="12sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/Y_coord">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/point_r_Y_text"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_marginTop="-8dp"
-                    android:layout_gravity="start"
-                    android:paddingStart="5dp"
-                    android:textSize="12sp"
-                    android:textColor="@color/red_color"
-                    android:text="@string/alert_format_text" />
+                    android:layout_marginTop="10dp"
+                    android:imeOptions="actionNext"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/X_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="-8dp"
+                android:paddingStart="5dp"
+                android:text="@string/alert_format_text"
+                android:textColor="@color/red_color"
+                android:textSize="12sp" />
+
             <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
                 android:layout_marginTop="3dp"
-                android:background="@color/white">
+                android:background="@color/white"
+                android:orientation="horizontal">
+
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/save_bl"
+                    android:id="@+id/save_pointr"
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
                     android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="5dp"
                     android:text="@string/Save_button" />
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
         </LinearLayout>

@@ -20,6 +20,7 @@ import com.example.geodezhelper.Pojo.BaseForCount;
 import com.example.geodezhelper.Pojo.NivPoint;
 import com.example.geodezhelper.Pojo.Point;
 import com.example.geodezhelper.R;
+import com.example.geodezhelper.round.ActivityListPointR;
 
 import org.w3c.dom.Text;
 
@@ -56,7 +57,7 @@ public class FragCountPointParams extends Fragment implements View.OnClickListen
         view = inflater.inflate(R.layout.fragment_count_point_params, null);
         views = new HashMap<>();
         dataBaseLine = DataBaseLine.getInstance(getActivity());
-        currentBL = dataBaseLine.getCurrentBL();
+        currentBL = (Baseline) dataBaseLine.getCurItem();
 
         addEditTexts();
         addViews();
@@ -64,65 +65,69 @@ public class FragCountPointParams extends Fragment implements View.OnClickListen
         return view;
     }
 
-    private void addEditTexts(){
-        xText = (EditText)view.findViewById(R.id.X_text);
-        yText = (EditText)view.findViewById(R.id.Y_text);
-        hText = (EditText)view.findViewById(R.id.H_text);
+    private void addEditTexts() {
+        xText = (EditText) view.findViewById(R.id.X_text);
+        yText = (EditText) view.findViewById(R.id.Y_text);
+        hText = (EditText) view.findViewById(R.id.H_text);
     }
-    private void addViews(){
-        xView = (TextView)view.findViewById(R.id.view_x_report);
+
+    private void addViews() {
+        xView = (TextView) view.findViewById(R.id.view_x_report);
         xView.setVisibility(View.INVISIBLE);
-        views.put(xText,xView);
-        yView = (TextView)view.findViewById(R.id.view_y_report);
+        views.put(xText, xView);
+        yView = (TextView) view.findViewById(R.id.view_y_report);
         yView.setVisibility(View.INVISIBLE);
-        views.put(yText,yView);
-        hView = (TextView)view.findViewById(R.id.view_h_report);
+        views.put(yText, yView);
+        hView = (TextView) view.findViewById(R.id.view_h_report);
         hView.setVisibility(View.INVISIBLE);
-        views.put(hText,hView);
-        radView = (TextView)view.findViewById(R.id.view_rad_report);
+        views.put(hText, hView);
+        radView = (TextView) view.findViewById(R.id.view_rad_report);
 
-        gor_lengthView = (TextView)view.findViewById(R.id.view_gor_length_report);
+        gor_lengthView = (TextView) view.findViewById(R.id.view_gor_length_report);
 
-        lengthView = (TextView)view.findViewById(R.id.view_length_report);
+        lengthView = (TextView) view.findViewById(R.id.view_length_report);
 
-        devView = (TextView)view.findViewById(R.id.view_dev_report);
+        devView = (TextView) view.findViewById(R.id.view_dev_report);
 
-        heightView = (TextView)view.findViewById(R.id.view_height_report);
+        heightView = (TextView) view.findViewById(R.id.view_height_report);
 
     }
-    private void addButtons(){
-        choose_bl = (Button)view.findViewById(R.id.choose_bl);
+
+    private void addButtons() {
+        choose_bl = (Button) view.findViewById(R.id.choose_bl);
         choose_bl.setOnClickListener(this);
-        if (currentBL!=null){
+        if (currentBL != null) {
             choose_bl.setText(currentBL.getName());
-        }else {
+        } else {
             choose_bl.setText(R.string.button_choose_bl);
         }
-        count = (Button)view.findViewById(R.id.count_point_params);
+        count = (Button) view.findViewById(R.id.count_point_params);
         count.setOnClickListener(this);
     }
-    private Double checkCoord(EditText editText){
+
+    private Double checkCoord(EditText editText) {
         Double result = null;
         try {
             result = Double.parseDouble(editText.getText().toString());
             views.get(editText).setVisibility(View.INVISIBLE);
             return result;
-        }catch (Exception ex){
+        } catch (Exception ex) {
             views.get(editText).setVisibility(View.VISIBLE);
             return result;
         }
     }
-    private void countParams(){
+
+    private void countParams() {
         Double x = checkCoord(xText);
         Double y = checkCoord(yText);
         Double h = checkCoord(hText);
-        if (x!=null && y!=null && h!=null){
-        Point point = new Point(x,y,h);
-        currentBL = dataBaseLine.getCurrentBL();
-            if (currentBL!=null){
-               System.out.println(currentBL.getName());
-               stringResult = new StringResult(currentBL,point);
-               updateView();
+        if (x != null && y != null && h != null) {
+            Point point = new Point(x, y, h);
+            currentBL = (Baseline) dataBaseLine.getCurItem();
+            if (currentBL != null) {
+                System.out.println(currentBL.getName());
+                stringResult = new StringResult(currentBL, point);
+                updateView();
             } else {
                 stringResult = new StringResult();
                 System.out.println("пизда");
@@ -131,21 +136,23 @@ public class FragCountPointParams extends Fragment implements View.OnClickListen
         }
 
     }
-    private void updateView(){
+
+    private void updateView() {
         radView.setText(stringResult.getRadius());
         gor_lengthView.setText(stringResult.getGorizontalLength());
         lengthView.setText(stringResult.getAbsolutLength());
         devView.setText(stringResult.getDeviation());
         heightView.setText(stringResult.getDeltaH());
     }
+
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.choose_bl :
+        switch (v.getId()) {
+            case R.id.choose_bl:
                 Intent intent2 = new Intent(getActivity(), ActivityListBL.class);
                 startActivity(intent2);
                 break;
-            case R.id.count_point_params :
+            case R.id.count_point_params:
                 countParams();
                 break;
         }

@@ -1,4 +1,4 @@
-package com.example.geodezhelper.interfaces;
+package com.example.geodezhelper.interfaces.forbeans;
 
 import java.util.UUID;
 

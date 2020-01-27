@@ -39,7 +39,7 @@
     <string name="hint_level">Отметка</string>
     <string name="title_activity_second">SecondActivity</string>
 
-    <string name="toast_data_update">Данные обновлены</string>
+
 
 
     <string name="ic_back">назад</string>
@@ -71,6 +71,9 @@
     <string name="but_add_dim">Добавить измерение</string>
 
     <string name="text_hint_point_name">Название точки</string>
+    <string name="alert_data_empty">Введите данные</string>
 
+    <string name="toast_data_all_invalide">Данные не обновлены</string>
+    <string name="toast_data_update">Данные обновлены</string>
 
 </resources>

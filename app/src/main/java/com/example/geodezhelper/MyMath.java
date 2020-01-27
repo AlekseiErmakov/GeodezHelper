@@ -3,6 +3,8 @@ package com.example.geodezhelper;
 import com.example.geodezhelper.BL.Baseline;
 import com.example.geodezhelper.Pojo.NivPoint;
 import com.example.geodezhelper.Pojo.Point;
+import com.example.geodezhelper.round.RoundCenter;
+import com.example.geodezhelper.round.RoundPoint;
 
 public class MyMath {
 
@@ -14,13 +16,13 @@ public class MyMath {
         private static final int kv=2;
 
         public static void coords(Baseline LN, Point P){
-            x1=LN.getpOne().getX();
-            y1=LN.getpOne().getY();
-            h1=LN.getpOne().getH();
+            x1=LN.getPone().getX();
+            y1=LN.getPone().getY();
+            h1=LN.getPone().getH();
 
-            x2=LN.getpTwo().getX();
-            y2=LN.getpTwo().getY();
-            h2=LN.getpTwo().getH();
+            x2=LN.getPtwo().getX();
+            y2=LN.getPtwo().getY();
+            h2=LN.getPtwo().getH();
 
             x=P.getX();
             y=P.getY();
@@ -77,7 +79,8 @@ public class MyMath {
             }
             Double result = null;
             if (x1!=null && y1!=null && h1!=null && x2!=null && y2!=null && h2!=null) {
-                result =  Math.sqrt(Math.pow(x - x1, kv) + Math.pow(y - y1, kv) + Math.pow(h - h1, kv) - Math.pow(blRad(LN, P), kv));
+                result =  Math.sqrt(Math.pow(x - x1, kv) + Math.pow(y - y1, kv) +
+                        Math.pow(h - h1, kv) - Math.pow(blRad(LN, P), kv));
             }
             return result;
         }
@@ -88,7 +91,9 @@ public class MyMath {
             }
             Double result = null;
             if (x1!=null && y1!=null && h1!=null && x2!=null && y2!=null && h2!=null) {
-                result = h - (h1 + (h2 - h1) * Math.sqrt(Math.pow(x - x1, kv) + Math.pow(y - y1, kv) - Math.pow(blDev(LN, P), kv)) / Math.sqrt(Math.pow(x - x1, kv) + Math.pow(y - y1, kv)));
+                result = h - (h1 + (h2 - h1) * Math.sqrt(Math.pow(x - x1, kv) +
+                        Math.pow(y - y1, kv) - Math.pow(blDev(LN, P), kv)) /
+                        Math.sqrt(Math.pow(x - x1, kv) + Math.pow(y - y1, kv)));
             }
             return result;
         }
@@ -120,7 +125,6 @@ public class MyMath {
             if (pOneEl!=null && pOneRep!=null && pTwoEl!=null){
                 result = 1000*(int)(pOneEl + pOneRep/1000 - pTwoEl);
             }
-            System.out.println(result);
             return result;
         }
         public static Integer nivRep(Double pOneEl, Double pOneRep, Double pTwoEl){
@@ -131,6 +135,36 @@ public class MyMath {
             }
             return result;
         }
+        private static RoundCenter countCenter(RoundPoint p1, RoundPoint p2, RoundPoint p3){
+            Double x1 = p1.getX();
+            Double y1 = p1.getY();
+            Double x2 = p2.getX();
+            Double y2 = p2.getY();
+            Double x3 = p3.getX();
+            Double y3 = p3.getY();
+            RoundCenter rc = null;
+
+            Double A = x2 - x1;
+            Double B = y2 - y1;
+            Double C = x3 - x1;
+            Double D = y3 - y1;
+            Double E = A * (x1 + x2) + B * (y1 + y2);
+            Double F = C * (x1 + x3) + D * (y1 + y3);
+            Double G = 2 * (A * (y3 - y2) - B * (x3 - x2));
+            if (G == 0){
+                return rc;
+            } else {
+                rc = new RoundCenter();
+                rc.setName(p1.getName() + " " + p2.getName() + " " + p3.getName());
+
+               Double x = (D * E - B * F) / G;
+               Double y = (A * F - C * E) / G;
+               rc.setX(x);
+               rc.setY(y);
+               return rc;
+            }
+        }
+
 
 
 }

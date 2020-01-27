@@ -1,4 +1,4 @@
-package com.example.geodezhelper.interfaces;
+package com.example.geodezhelper.interfaces.forFrag;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.geodezhelper.R;
+import com.example.geodezhelper.interfaces.forbeans.MyData;
 
 import java.util.List;
 
@@ -20,14 +21,14 @@ public abstract class ListFrag extends Fragment {
         super.onResume();
         updateUI();
     }
-    private abstract class MyDataHol extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
+    public abstract class MyDataHol extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
         public MyDataHol(LayoutInflater inflater, ViewGroup parent){
             super(inflater.inflate(R.layout.view_item_lev_ref_list,parent,false));
         }
 
         public abstract void bind(MyData myData);
     }
-    private abstract class MyDataAdapter extends RecyclerView.Adapter<MyDataHol>{
+    public abstract class MyDataAdapter extends RecyclerView.Adapter<MyDataHol>{
         private List<MyData> myDatas;
         public  MyDataAdapter(List<MyData> myDatas){
             this.myDatas=myDatas;

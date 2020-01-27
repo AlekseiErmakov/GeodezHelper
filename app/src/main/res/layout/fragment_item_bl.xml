@@ -4,227 +4,267 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BL.FragItemBL">
+
     <ScrollView
         android:id="@+id/myview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:scrollbarStyle="insideOverlay">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/white"
                 android:orientation="vertical"
                 android:paddingHorizontal="15dp"
-                android:paddingBottom="10dp"
-                android:background="@color/white">
+                android:paddingBottom="10dp">
+
                 <TextView
                     android:id="@+id/text_view_TitleStraightLane"
-                    android:layout_height="wrap_content"
                     android:layout_width="match_parent"
-                    android:gravity="center"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="10dp"
-                    android:textSize="24sp"
-                    android:text="@string/Base_Title" />
+                    android:gravity="center"
+                    android:text="@string/Base_Title"
+                    android:textSize="24sp" />
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/Base_name">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/b_name_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:singleLine="true"
-                    android:imeOptions="actionNext"/>
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/b_name_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    android:id="@+id/bl_view_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="-8dp"
+                    android:paddingStart="5dp"
+                    android:text="@string/alert_format_text"
+                    android:textColor="@color/red_color"
+                    android:textSize="12sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="3dp"
+                android:background="@color/white"
                 android:orientation="vertical"
                 android:paddingHorizontal="15dp"
-                android:paddingVertical="2dp"
-                android:layout_marginTop="3dp"
-                android:background="@color/white">
+                android:paddingVertical="2dp">
+
                 <TextView
                     android:id="@+id/text_view_TitleFirstPoint"
-                    android:layout_height="wrap_content"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:gravity="start"
                     android:paddingLeft="5dp"
-                    android:textSize="18sp"
-                    android:text="@string/Point_one_Title" />
+                    android:text="@string/Point_one_Title"
+                    android:textSize="18sp" />
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/X_coord">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/X1_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:singleLine="true"
-                    android:imeOptions="actionNext"/>
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/X_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
+
                 <TextView
                     android:id="@+id/view_X1"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:layout_marginTop="-8dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="start"
+                    android:layout_marginTop="-8dp"
                     android:paddingStart="5dp"
-                    android:textSize="12sp"
+                    android:text="@string/alert_format_text"
                     android:textColor="@color/red_color"
-                    android:text="@string/alert_format_text" />
+                    android:textSize="12sp" />
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/Y_coord">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/Y1_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:singleLine="true"
-                    android:imeOptions="actionNext"/>
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Y_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
+
                 <TextView
                     android:id="@+id/view_Y1"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:layout_marginTop="-8dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="start"
+                    android:layout_marginTop="-8dp"
                     android:paddingStart="5dp"
-                    android:textSize="12sp"
+                    android:text="@string/alert_format_text"
                     android:textColor="@color/red_color"
-                    android:text="@string/alert_format_text" />
+                    android:textSize="12sp" />
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/H_coord">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/H1_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:singleLine="true"
-                    android:imeOptions="actionNext"/>
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/H1_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
+
                 <TextView
                     android:id="@+id/view_H1"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:layout_marginTop="-8dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="start"
+                    android:layout_marginTop="-8dp"
                     android:paddingStart="5dp"
-                    android:textSize="12sp"
-                    android:textColor="@color/red_color"
+                    android:singleLine="true"
                     android:text="@string/alert_format_text"
-                    android:singleLine="true" />
+                    android:textColor="@color/red_color"
+                    android:textSize="12sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="3dp"
+                android:background="@color/white"
                 android:orientation="vertical"
                 android:paddingHorizontal="15dp"
-                android:paddingVertical="5dp"
-                android:layout_marginTop="3dp"
-                android:background="@color/white">
+                android:paddingVertical="5dp">
+
                 <TextView
                     android:id="@+id/view_point2"
-                    android:layout_height="wrap_content"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:gravity="start"
                     android:paddingLeft="5dp"
-                    android:textSize="18sp"
-                    android:text="@string/Point_two_Title" />
+                    android:text="@string/Point_two_Title"
+                    android:textSize="18sp" />
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/X_coord">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/X2_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:singleLine="true"
-                    android:imeOptions="actionNext"/>
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/X2_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
+
                 <TextView
                     android:id="@+id/view_X2"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:layout_marginTop="-8dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="start"
+                    android:layout_marginTop="-8dp"
                     android:paddingStart="5dp"
-                    android:textSize="12sp"
+                    android:text="@string/alert_format_text"
                     android:textColor="@color/red_color"
-                    android:text="@string/alert_format_text" />
+                    android:textSize="12sp" />
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/Y_coord">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/Y2_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:singleLine="true"
-                    android:imeOptions="actionNext"/>
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Y2_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
+
                 <TextView
                     android:id="@+id/view_Y2"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:layout_marginTop="-8dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="start"
+                    android:layout_marginTop="-8dp"
                     android:paddingStart="5dp"
-                    android:textSize="12sp"
+                    android:text="@string/alert_format_text"
                     android:textColor="@color/red_color"
-                    android:text="@string/alert_format_text" />
+                    android:textSize="12sp" />
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/point"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/H_coord">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/H2_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:singleLine="true"
-                    android:imeOptions="actionDone"/>
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/H2_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:imeOptions="actionDone"
+                        android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
+
                 <TextView
                     android:id="@+id/view_H2"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:layout_marginTop="-8dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="start"
+                    android:layout_marginTop="-8dp"
                     android:paddingStart="5dp"
-                    android:textSize="12sp"
+                    android:text="@string/alert_format_text"
                     android:textColor="@color/red_color"
-                    android:text="@string/alert_format_text" />
+                    android:textSize="12sp" />
             </LinearLayout>
+
             <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
                 android:layout_marginTop="3dp"
-                android:background="@color/white">
+                android:background="@color/white"
+                android:orientation="horizontal">
+
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/save_bl"
+                    android:id="@+id/save_baseline"
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
                     android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="5dp"
                     android:text="@string/Save_button" />
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
         </LinearLayout>

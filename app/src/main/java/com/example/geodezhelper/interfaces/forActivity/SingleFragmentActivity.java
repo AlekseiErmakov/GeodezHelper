@@ -1,4 +1,4 @@
-package com.example.geodezhelper;
+package com.example.geodezhelper.interfaces.forActivity;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 
+import com.example.geodezhelper.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public abstract class SingleFragmentActivity extends AppCompatActivity {

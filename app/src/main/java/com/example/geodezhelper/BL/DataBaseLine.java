@@ -2,55 +2,34 @@ package com.example.geodezhelper.BL;
 
 import android.content.Context;
 
+
+import com.example.geodezhelper.interfaces.forData.DataConteiner;
+import com.example.geodezhelper.interfaces.forbeans.MyData;
+
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
-public class DataBaseLine {
+
+public class DataBaseLine extends DataConteiner {
     private static DataBaseLine dataBaseLine;
-    private List<Baseline> baselines;
-    private UUID currentID;
-    private DataBaseLine(Context context){
-        baselines = new ArrayList<>();
+    private static List<MyData> myDatas;
+
+    private DataBaseLine(Context context, List<MyData> myDatas){
+        super(context,myDatas);
 
     }
     public static DataBaseLine getInstance(Context context){
         if (dataBaseLine == null){
-            dataBaseLine = new DataBaseLine(context);
+            myDatas = new ArrayList<>();
+            dataBaseLine = new DataBaseLine(context,myDatas);
         }
         return dataBaseLine;
     }
 
-    public List<Baseline> getBaselines() {
-        return baselines;
+
+    public void addItem(){
+        myDatas.add(new Baseline());
     }
-    public Baseline getBaseline(UUID uuid){
-        for (Baseline baseline : baselines){
-            if (baseline.getUuid().equals(uuid)){
-                return baseline;
-            }
-        }
-        return null;
-    }
-    public void setCurrentID(UUID currentID){
-        this.currentID = currentID;
-    }
-    public Baseline getCurrentBL(){
-        for (Baseline baseline : baselines){
-            if (baseline.getUuid().equals(currentID)){
-                return baseline;
-            }
-        }
-        return null;
-    }
-    public void addBL(){
-        baselines.add(new Baseline());
-    }
-    public Baseline getLastBL(){
-        Baseline baseline=null;
-        if (baselines.size()>0){
-            baseline=baselines.get(baselines.size()-1);
-        }
-        return baseline;
-    }
+
 }

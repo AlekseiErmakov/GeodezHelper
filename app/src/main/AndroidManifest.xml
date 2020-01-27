@@ -44,6 +44,20 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".round.ActivityItemPointR">
+            <intent-filter>
+                <action android:name="android.intent.action.list_roundP" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".round.ActivityListPointR">
+            <intent-filter>
+                <action android:name="android.intent.action.item_roundP" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

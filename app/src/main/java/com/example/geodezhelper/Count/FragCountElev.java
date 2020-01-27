@@ -13,17 +13,13 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import com.example.geodezhelper.BL.ActivityListBL;
 import com.example.geodezhelper.LR.ActivityListLevRef;
 import com.example.geodezhelper.LR.DataLevRef;
-import com.example.geodezhelper.Pojo.NivPoint;
 import com.example.geodezhelper.R;
 import com.example.geodezhelper.StringUtils;
-import com.example.geodezhelper.interfaces.MyDataHolder;
-import com.example.geodezhelper.interfaces.MyNivData;
+import com.example.geodezhelper.interfaces.forData.MyDataHolder;
+import com.example.geodezhelper.interfaces.forbeans.MyNivData;
 import com.google.android.material.textfield.TextInputLayout;
-
-import java.util.Locale;
 
 
 public class FragCountElev extends Fragment implements View.OnClickListener {

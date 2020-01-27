@@ -1,6 +1,8 @@
-package com.example.geodezhelper.interfaces;
+package com.example.geodezhelper.interfaces.forData;
 
-import android.content.Context;
+
+
+import com.example.geodezhelper.interfaces.forbeans.MyData;
 
 import java.util.List;
 import java.util.UUID;
@@ -12,7 +14,7 @@ public interface MyDataHolder {
     MyData getItem(UUID id);
     MyData getLastItem();
     MyData getCurItem();
-    void setCurrentId(UUID id);
+    void setCurId(UUID id);
 
 }
 

@@ -1,10 +1,10 @@
-package com.example.geodezhelper.interfaces;
+package com.example.geodezhelper.interfaces.forbeans;
 
 import com.example.geodezhelper.Pojo.Point;
 
 import java.util.ArrayList;
 
-public interface MyBaseLineData extends MyData{
+public interface MyBaseLineData extends MyData {
     Point getPone();
     Point getPtwo();
     void setPone(Point point);

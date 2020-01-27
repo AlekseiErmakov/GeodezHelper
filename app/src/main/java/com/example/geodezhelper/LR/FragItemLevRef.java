@@ -12,20 +12,26 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.geodezhelper.Pojo.NivPoint;
 import com.example.geodezhelper.R;
-import com.example.geodezhelper.interfaces.MyNivData;
+import com.example.geodezhelper.StringUtils;
+import com.example.geodezhelper.interfaces.forFrag.ItemFrag;
+import com.example.geodezhelper.interfaces.forbeans.MyNivData;
 
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.UUID;
 
 
-public class FragItemLevRef extends Fragment implements View.OnClickListener{
-    private EditText nameText,levelText;
+public class FragItemLevRef extends ItemFrag {
+    private EditText nameText, levelText;
     private TextView levelview;
+    private TextView nameview;
     private Button saveBTN;
     private MyNivData myNivData;
+    Map<EditText, TextView> views;
     private static final String ARG_LEVREF_ID = "lev_ref_id";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,45 +39,80 @@ public class FragItemLevRef extends Fragment implements View.OnClickListener{
         myNivData = (MyNivData) DataLevRef.getInstance(getActivity()).getItem(levrefId);
 
     }
-    public static FragItemLevRef newInstance(UUID levrefId){
+
+    public static FragItemLevRef newInstance(UUID levrefId) {
         Bundle args = new Bundle();
-        args.putSerializable(ARG_LEVREF_ID,levrefId);
+        args.putSerializable(ARG_LEVREF_ID, levrefId);
         FragItemLevRef fragment = new FragItemLevRef();
         fragment.setArguments(args);
         return fragment;
     }
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_item_level_refence,container,false);
 
-        nameText = (EditText)v.findViewById(R.id.LR_name);
-        nameText.setText(myNivData.getName());
-        levelText = (EditText)v.findViewById(R.id.LR_level);
-        levelText.setText(String.format(Locale.ENGLISH,"%.3f",myNivData.getHeight()));
-        levelview = (TextView)v.findViewById(R.id.view_level);
-        levelview.setVisibility(View.INVISIBLE);
-        saveBTN = (Button)v.findViewById(R.id.save_LR);
-        saveBTN.setOnClickListener(this);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        View v = inflater.inflate(R.layout.fragment_item_level_refence, container, false);
+
+        createEditText(v);
+        createTextView(v);
+        createButton(v);
+        views = getViews();
+        upDateView();
+
         return v;
+    }
+
+    private void createEditText(View v) {
+        nameText = (EditText) v.findViewById(R.id.LR_name);
+        levelText = (EditText) v.findViewById(R.id.LR_level);
+    }
+
+    private void createTextView(View v) {
+        levelview = (TextView) v.findViewById(R.id.view_level);
+        levelview.setVisibility(View.INVISIBLE);
+        nameview = (TextView) v.findViewById(R.id.lr_view_name);
+        nameview.setVisibility(View.INVISIBLE);
+    }
+
+    private void createButton(View v) {
+        saveBTN = (Button) v.findViewById(R.id.save_LR);
+        saveBTN.setOnClickListener(this);
+    }
+
+    public Map<EditText, TextView> getViews() {
+        Map<EditText, TextView> views = new HashMap<>();
+        views.put(nameText, nameview);
+        views.put(levelText, levelview);
+        return views;
+    }
+
+    private void upDateView() {
+        String name = String.valueOf(myNivData.getName());
+        String height = String.valueOf(myNivData.getHeight());
+        if (!name.equals("null")) {
+            nameText.setText(name);
+        }
+        if (!height.equals("null")) {
+            levelText.setText(StringUtils.coordTxt(myNivData.getHeight()));
+        }
     }
 
     @Override
     public void onClick(View v) {
-        int command = v.getId();
-        switch (command){
-            case(R.id.save_LR):
-                updatedata();
+
+        switch (v.getId()) {
+            case (R.id.save_LR):
+                updateData();
         }
     }
-    public void updatedata(){
-        myNivData.setName(String.valueOf(nameText.getText()));
-        double elevation;
-        try {
-            elevation = Double.parseDouble(String.valueOf(levelText.getText()));
-            myNivData.setHeight(elevation);
-            levelview.setVisibility(View.INVISIBLE);
-            Toast.makeText(getActivity(), R.string.toast_data_update, Toast.LENGTH_SHORT).show();
-        }catch (Exception ex){
-            levelview.setVisibility(View.VISIBLE);
+
+    @Override
+    public void updateData() {
+        myNivData.setName(chekName(nameText, views));
+        myNivData.setHeight(chekDouble(levelText, views));
+        if (myNivData.getName() == null && myNivData.getHeight() == null) {
+            makeMyToast(R.string.toast_data_all_invalide);
+        } else {
+            makeMyToast(R.string.toast_data_update);
         }
     }
 }

@@ -3,87 +3,107 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Count.FragCountPointParams"
-    >
+    tools:context=".Count.FragCountPointParams">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="15dp">
+
         <TextView
             android:id="@+id/text_view_TitleStraightLane"
-            android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:gravity="center"
+            android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:textSize="18sp"
-            android:text="@string/Title_count_round" />
+            android:gravity="center"
+            android:text="@string/Title_count_round"
+            android:textSize="18sp" />
+
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/res_view_inside_count_round"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="@color/light_grey"/>
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/md_keylines"
+            android:paddingTop="@dimen/md_keylines"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@color/light_grey" />
+
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/add_point"
+                android:id="@+id/count_round"
                 style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:text="@string/button_count_round"/>
+                android:text="@string/button_count_round" />
+
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/count_round"
+                android:id="@+id/add_pint"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:text="@string/button_add_point"/>
+                android:text="@string/button_add_point" />
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_gravity="start"
-            android:text="@string/X_coord" />
-        <TextView
-            android:id="@+id/view_x_round_report"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_gravity="end" />
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
-                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="start"
-                android:text="@string/Y_coord" />
+                android:text="@string/X_coord" />
+
             <TextView
-                android:id="@+id/view_y_round_report"
-                android:layout_height="wrap_content"
+                android:id="@+id/view_x_round_report"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="end" />
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
-                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:text="@string/Y_coord" />
+
+            <TextView
+                android:id="@+id/view_y_round_report"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end" />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:text="@string/t_v_radius" />
+
             <TextView
                 android:id="@+id/view_radius_round_report"
-                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="end" />
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </LinearLayout>

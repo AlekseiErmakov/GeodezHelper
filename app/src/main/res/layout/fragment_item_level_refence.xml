@@ -31,7 +31,16 @@
             android:singleLine="true"
             android:imeOptions="actionNext"/>
     </com.google.android.material.textfield.TextInputLayout>
-
+        <TextView
+            android:id="@+id/lr_view_name"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="-8dp"
+            android:layout_gravity="start"
+            android:paddingStart="5dp"
+            android:textSize="12sp"
+            android:textColor="@color/red_color"
+            android:text="@string/alert_format_text" />
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

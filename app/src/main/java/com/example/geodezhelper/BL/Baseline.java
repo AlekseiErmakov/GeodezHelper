@@ -1,27 +1,24 @@
 package com.example.geodezhelper.BL;
 
 import com.example.geodezhelper.Pojo.Point;
+import com.example.geodezhelper.interfaces.forbeans.MyBaseLineData;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
-public class Baseline {
+public class Baseline implements MyBaseLineData {
     private UUID uuid;
     private String name;
     private Point pOne;
     private Point pTwo;
+    private ArrayList<Double> coords;
     public Baseline(){
         uuid = UUID.randomUUID();
         pOne = new Point();
         pTwo = new Point();
+        coords = new ArrayList<>();
     }
-    public Baseline(String name, Point pOne, Point pTwo){
-        uuid = UUID.randomUUID();
-        this.pOne = pOne;
-        this.pTwo = pTwo;
-        this.name = name;
-    }
-
-    public void setUuid(UUID uuid) {
+    public void setId(UUID uuid) {
         this.uuid = uuid;
     }
 
@@ -31,20 +28,22 @@ public class Baseline {
         }
     }
 
-    public void setpOne(Point pOne) {
+    public void setPone(Point pOne) {
         if (pOne!=null) {
             this.pOne = pOne;
         }
     }
-
-    public void setpTwo(Point pTwo) {
+    public void setPtwo(Point pTwo) {
         if (pTwo!=null){
             this.pTwo = pTwo;
         }
-
+    }
+    @Override
+    public ArrayList<Double> getCoords() {
+        return coords;
     }
 
-    public UUID getUuid() {
+    public UUID getId() {
         return uuid;
     }
 
@@ -52,11 +51,11 @@ public class Baseline {
         return name;
     }
 
-    public Point getpOne() {
+    public Point getPone() {
         return pOne;
     }
 
-    public Point getpTwo() {
+    public Point getPtwo() {
         return pTwo;
     }
 }

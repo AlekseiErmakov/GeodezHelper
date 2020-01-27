@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,15 +13,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.geodezhelper.ActivityMain;
-import com.example.geodezhelper.BL.ActivityListBL;
-import com.example.geodezhelper.Pojo.NivPoint;
 import com.example.geodezhelper.R;
 import com.example.geodezhelper.StringUtils;
-import com.example.geodezhelper.interfaces.ItemFrag;
-import com.example.geodezhelper.interfaces.ListFrag;
-import com.example.geodezhelper.interfaces.MyData;
-import com.example.geodezhelper.interfaces.MyDataHolder;
-import com.example.geodezhelper.interfaces.MyNivData;
+import com.example.geodezhelper.interfaces.forFrag.ListFrag;
+import com.example.geodezhelper.interfaces.forbeans.MyData;
+import com.example.geodezhelper.interfaces.forData.MyDataHolder;
+import com.example.geodezhelper.interfaces.forbeans.MyNivData;
 
 import java.util.List;
 
@@ -51,12 +47,12 @@ public class FragListLevRef extends ListFrag {
         }
 
     }
-    private class LevRefHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
+    private class LevRefHolder extends MyDataHol{
         private TextView NameView;
         private TextView ElevView;
         private MyNivData myNivData;
         public LevRefHolder(LayoutInflater inflater, ViewGroup parent){
-            super(inflater.inflate(R.layout.view_item_lev_ref_list,parent,false));
+            super(inflater,parent);
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
             NameView =(TextView)itemView.findViewById(R.id.lev_ref_name);
@@ -67,7 +63,6 @@ public class FragListLevRef extends ListFrag {
             NameView.setText(myNivData.getName());
             ElevView.setText(StringUtils.coordTxt(myNivData.getHeight()));
         }
-
         @Override
         public void onClick(View v) {
             Intent intent = ActivityItemLevRef.newIntent(getActivity(), myNivData.getId());
@@ -76,34 +71,21 @@ public class FragListLevRef extends ListFrag {
         @Override
         public boolean onLongClick(View v) {
             MyDataHolder myDataHolder = DataLevRef.getInstance(getActivity());
-            myDataHolder.setCurrentId(myNivData.getId());
-
+            myDataHolder.setCurId(myNivData.getId());
             Intent intent2 = new Intent(getActivity(), ActivityMain.class);
             startActivity(intent2);
             return true;
         }
-
     }
-    private class LevRefAdapter extends RecyclerView.Adapter<LevRefHolder>{
-        private List<MyData> myDatas;
+    private class LevRefAdapter extends ListFrag.MyDataAdapter{
         public LevRefAdapter(List<MyData> myDatas){
-            this.myDatas=myDatas;
+            super(myDatas);
         }
         @NonNull
         @Override
         public LevRefHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
            LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
            return new LevRefHolder(layoutInflater,parent);
-
-        }
-        @Override
-        public void onBindViewHolder(@NonNull LevRefHolder holder, int position) {
-            MyData myData = myDatas.get(position);
-            holder.bind(myData);
-        }
-        @Override
-        public int getItemCount() {
-            return myDatas.size();
         }
     }
 }

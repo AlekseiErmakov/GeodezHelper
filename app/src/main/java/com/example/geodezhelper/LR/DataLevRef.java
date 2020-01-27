@@ -4,55 +4,33 @@ import android.content.Context;
 
 
 import com.example.geodezhelper.Pojo.NivPoint;
-import com.example.geodezhelper.interfaces.MyData;
-import com.example.geodezhelper.interfaces.MyDataHolder;
+import com.example.geodezhelper.interfaces.forData.DataConteiner;
+import com.example.geodezhelper.interfaces.forbeans.MyData;
+
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
-public class DataLevRef implements MyDataHolder {
+
+public class DataLevRef extends DataConteiner {
     private static DataLevRef dataLevRef;
-    private List<MyData> myDatas;
-    private UUID currentID;
-    private DataLevRef(Context context){
-        myDatas = new ArrayList<>();
+
+    private static List<MyData> myDatas;
+
+    private DataLevRef(Context context, List<MyData> myDatas){
+        super(context,myDatas);
     }
+
     public static DataLevRef getInstance(Context context){
         if(dataLevRef == null){
-            dataLevRef = new DataLevRef(context);
+            myDatas = new ArrayList<>();
+            dataLevRef = new DataLevRef(context,myDatas);
         }
         return dataLevRef;
     }
-    public List<MyData> getList(){
-        return myDatas;
-    }
+
     public void addItem(){
         myDatas.add(new NivPoint());
     }
-    public void removeItem(){
-        myDatas.remove(myDatas.size()-1);
-    }
-    public MyData getLastItem(){
-        return myDatas.get(myDatas.size()-1);
-    }
-    public MyData getItem(UUID id){
-        for (MyData myData : myDatas){
-            if (myData.getId().equals(id)){
-                return myData;
-            }
-        }
-        return null;
-    }
-    public void setCurrentId(UUID currentID){
-        this.currentID = currentID;
-    }
-    public MyData getCurItem(){
-        for (MyData myData : myDatas){
-            if (myData.getId().equals(currentID)){
-                return myData;
-            }
-        }
-        return null;
-    }
+
 }

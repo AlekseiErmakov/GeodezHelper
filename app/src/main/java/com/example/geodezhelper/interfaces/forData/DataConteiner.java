@@ -1,27 +1,21 @@
-package com.example.geodezhelper.interfaces;
+package com.example.geodezhelper.interfaces.forData;
 
 import android.content.Context;
 
 import com.example.geodezhelper.Pojo.NivPoint;
+import com.example.geodezhelper.interfaces.forbeans.MyData;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class DataLevRefExt implements MyDataHolder {
-    private static DataLevRefExt dataLevRef;
+public abstract class DataConteiner implements MyDataHolder {
+
     private List<MyData> myDataList;
     private UUID currentID;
-    private DataLevRefExt(Context context){
-        myDataList = new ArrayList<>();
+    public DataConteiner(Context context,List<MyData> myDataList){
+        this.myDataList = myDataList;
     }
-    public static DataLevRefExt getInstance(Context context){
-        if(dataLevRef == null){
-            dataLevRef = new DataLevRefExt(context);
-        }
-        return dataLevRef;
-    }
-    @Override
+        @Override
     public void removeItem() {
         myDataList.remove(myDataList.size()-1);
     }
@@ -59,7 +53,7 @@ public class DataLevRefExt implements MyDataHolder {
     }
 
     @Override
-    public void setCurrentId(UUID currentID) {
+    public void setCurId(UUID currentID) {
         this.currentID = currentID;
     }
 
@@ -68,8 +62,4 @@ public class DataLevRefExt implements MyDataHolder {
         return myDataList;
     }
 
-    @Override
-    public void addItem() {
-        myDataList.add(new NivPoint());
-    }
 }

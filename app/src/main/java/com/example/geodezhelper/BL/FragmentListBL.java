@@ -8,17 +8,18 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.geodezhelper.ActivityMain;
 import com.example.geodezhelper.R;
+import com.example.geodezhelper.interfaces.forFrag.ListFrag;
+import com.example.geodezhelper.interfaces.forbeans.MyData;
+import com.example.geodezhelper.interfaces.forData.MyDataHolder;
 
 import java.util.List;
 
-public class FragmentListBL extends Fragment {
+public class FragmentListBL extends ListFrag {
     private RecyclerView resView;
     private BaseLineAdapter baseLineAdapter;
 
@@ -30,76 +31,61 @@ public class FragmentListBL extends Fragment {
        updateUI();
        return view;
     }
-    @Override
-    public void onResume() {
-        super.onResume();
-        updateUI();
-    }
-    private void updateUI(){
+    public void updateUI(){
         DataBaseLine dataBaseLine = DataBaseLine.getInstance(getActivity());
-        List<Baseline> baselines = dataBaseLine.getBaselines();
+        List<MyData> myData = dataBaseLine.getList();
 
         if (baseLineAdapter==null){
-            baseLineAdapter = new BaseLineAdapter(baselines);
+            baseLineAdapter = new BaseLineAdapter(myData);
             resView.setAdapter(baseLineAdapter);
         }else {
             baseLineAdapter.notifyDataSetChanged();
         }
     }
 
-    private class BaseLineHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
-        private TextView BLnameView;
-        private Baseline baseline;
+    private class BaseLineHolder extends ListFrag.MyDataHol {
+        private TextView NameView;
+        private MyData myData;
 
         public BaseLineHolder(LayoutInflater inflater, ViewGroup parent){
-            super(inflater.inflate(R.layout.view_item_base_line,parent,false));
+            super(inflater,parent);
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
-            BLnameView = (TextView)itemView.findViewById(R.id.base_line_name);
+            NameView = (TextView)itemView.findViewById(R.id.lev_ref_name);
 
         }
-        public void bind(Baseline bl){
-            baseline = bl;
-            BLnameView.setText(baseline.getName());
+        public void bind(MyData bl){
+            myData = bl;
+            NameView.setText(myData.getName());
         }
 
         @Override
         public void onClick(View v) {
-            Intent intent = ActivityItemBL.newIntent(getActivity(),baseline.getUuid());
+            Intent intent = ActivityItemBL.newIntent(getActivity(),myData.getId());
             startActivity(intent);
         }
 
         @Override
         public boolean onLongClick(View v) {
-            DataBaseLine dataBaseLine = DataBaseLine.getInstance(getActivity());
-            dataBaseLine.setCurrentID(baseline.getUuid());
+            MyDataHolder myDataHolder = DataBaseLine.getInstance(getActivity());
+            myDataHolder.setCurId(myData.getId());
             Intent intent2 = new Intent(getActivity(), ActivityMain.class);
             startActivity(intent2);
             return true;
         }
     }
 
-    private class BaseLineAdapter extends RecyclerView.Adapter<BaseLineHolder>{
-        private List<Baseline> baselines;
-        public BaseLineAdapter(List<Baseline> bls){
-            baselines = bls;
-        }
+    private class BaseLineAdapter extends ListFrag.MyDataAdapter {
 
+        public BaseLineAdapter(List<MyData> myDatas) {
+            super(myDatas);
+        }
         @NonNull
         @Override
         public BaseLineHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-            return new BaseLineHolder(layoutInflater,parent);
+            return new BaseLineHolder(layoutInflater, parent);
         }
 
-        @Override
-        public void onBindViewHolder(@NonNull BaseLineHolder holder, int position) {
-            Baseline baseline = baselines.get(position);
-            holder.bind(baseline);
-        }
-        public int getItemCount(){
-            return baselines.size();
-        }
     }
-
 }
