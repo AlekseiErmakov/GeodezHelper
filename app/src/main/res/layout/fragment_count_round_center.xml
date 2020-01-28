@@ -37,7 +37,7 @@
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/count_round"
+                android:id="@+id/count_round_count_btn"
                 style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -53,59 +53,11 @@
                 android:text="@string/button_add_point" />
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/round_view_result"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:text="@string/X_coord" />
-
-            <TextView
-                android:id="@+id/view_x_round_report"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end" />
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:text="@string/Y_coord" />
-
-            <TextView
-                android:id="@+id/view_y_round_report"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end" />
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:text="@string/t_v_radius" />
-
-            <TextView
-                android:id="@+id/view_radius_round_report"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end" />
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+                android:layout_gravity="start" />
     </LinearLayout>
 
 </FrameLayout>

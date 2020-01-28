@@ -1,7 +1,5 @@
 package com.example.geodezhelper;
 
-import com.example.geodezhelper.Count.StringResult;
-
 import java.util.Locale;
 
 public class StringUtils {

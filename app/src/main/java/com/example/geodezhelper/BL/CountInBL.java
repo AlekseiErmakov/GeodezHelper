@@ -1,16 +1,18 @@
-package com.example.geodezhelper.Count;
+package com.example.geodezhelper.BL;
 
 import com.example.geodezhelper.BL.Baseline;
+import com.example.geodezhelper.BL.CurrentBL;
 import com.example.geodezhelper.MyMath;
 import com.example.geodezhelper.Pojo.NivPoint;
 import com.example.geodezhelper.Pojo.Point;
 import com.example.geodezhelper.StringUtils;
 import com.example.geodezhelper.WordHolder;
+import com.example.geodezhelper.interfaces.forbeans.MyBaseLineData;
 
 import java.util.Locale;
 
-public class StringResult implements WordHolder {
-    private Baseline baseline;
+public class CountInBL implements WordHolder {
+    private MyBaseLineData baseline;
     private Point point;
     private NivPoint nivPointOne;
     private NivPoint nivPointTwo;
@@ -23,18 +25,18 @@ public class StringResult implements WordHolder {
     private String pointReport;
     private Double pRep;
 
-    public StringResult(){
+    public CountInBL(){
 
     }
-    public StringResult(Baseline baseline, Point point){
+    public CountInBL(CurrentBL baseline, Point point){
           this.baseline = baseline;
           this.point = point;
     }
-    public StringResult(NivPoint nivPointOne, NivPoint nivPointTwo){
+    public CountInBL(NivPoint nivPointOne, NivPoint nivPointTwo){
         this.nivPointOne = nivPointOne;
         this.nivPointTwo = nivPointTwo;
     }
-    public StringResult(NivPoint nivPointOne, NivPoint nivPointTwo, Double pRep){
+    public CountInBL(NivPoint nivPointOne, NivPoint nivPointTwo, Double pRep){
         this.nivPointOne = nivPointOne;
         this.nivPointTwo = nivPointTwo;
         this.pRep = pRep;
@@ -44,7 +46,7 @@ public class StringResult implements WordHolder {
         this.point = point;
     }
 
-    public void setBaseline(Baseline baseline) {
+    public void setBaseline(CurrentBL baseline) {
         this.baseline = baseline;
     }
 
@@ -92,45 +94,8 @@ public class StringResult implements WordHolder {
         }
         return NOTENOUGHDATA;
     }
-    public String getPointEl(){
 
-        Double poinrEl=null;
-        if (pRep!=null){
-           poinrEl = MyMath.nivElevation(nivPointOne,nivPointTwo,pRep);
-            System.out.println(poinrEl);
-        }
 
-        if (poinrEl!=null){
-            pointElevation = StringUtils.coordTxt(poinrEl);
-            return pointElevation;
-        }
-        return NOTENOUGHDATA;
-    }
-    public String getPointEl(Double pOneRep, Double pOneEl, Double pTwoRep){
-        Double result = MyMath.nivElevation(pOneRep,pOneEl,pTwoRep);
-        if (result!=null){
-            pointElevation = StringUtils.coordTxt(result);
-            return pointElevation;
-        }
-        return NOTENOUGHDATA;
-    }
-    public String getPointReport(){
-        Integer pointRp = MyMath.nivRep(nivPointOne,nivPointTwo);
-        if (pointRp!=null){
-            pointReport = StringUtils.reportTxt(pointRp);
-            return pointReport;
-
-        }
-        return NOTENOUGHDATA;
-    }
-    public String getPointReport(Double pOneEl, Double pOneRep, Double pTwoEl){
-        Integer result = MyMath.nivRep(pOneEl,pOneRep,pTwoEl);
-        if (result!=null){
-            pointReport = StringUtils.reportTxt(result);
-            return pointReport;
-        }
-        return NOTENOUGHDATA;
-    }
 
 
 }

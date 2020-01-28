@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,33 +20,44 @@ import com.example.geodezhelper.R;
 import com.example.geodezhelper.interfaces.forData.MyDataHolder;
 import com.example.geodezhelper.interfaces.forFrag.ListFrag;
 import com.example.geodezhelper.interfaces.forbeans.MyData;
+import com.example.geodezhelper.interfaces.forbeans.MySimplePoint;
 import com.example.geodezhelper.round.ActivityItemPointR;
 import com.example.geodezhelper.round.ActivityListPointR;
+import com.example.geodezhelper.round.CountInRound;
 import com.example.geodezhelper.round.DataPointR;
 import com.example.geodezhelper.round.FragListPointR;
 import com.example.geodezhelper.round.RoundPoint;
 
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class FragCountRoundCenter extends Fragment implements View.OnClickListener{
     private Button add;
+    private Button count;
     private RecyclerView resView;
     private RoundPointsAdapter adapter;
+    private List<MyData> myDatas;
+    private TextView ViewResult;
+    CountInRound countCenter;
+    MyDataHolder myDataHolder;
     @Nullable
     @Override
     public View onCreateView( LayoutInflater inflater, ViewGroup container,  Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_count_round_center,container,false);
+        myDataHolder = DataPointR.getInstance(getActivity());
         resView = (RecyclerView)view.findViewById(R.id.res_view_inside_count_round);
         resView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        add = (Button)view.findViewById(R.id.add_pint);
-        add.setOnClickListener(this);
+        createButtons(view);
+        ViewResult = (TextView)view.findViewById(R.id.round_view_result);
         updateUI();
+        countCenter = new CountInRound();
         return view;
     }
     public void updateUI(){
-        MyDataHolder myDataHolder = DataPointR.getInstance(getActivity());
-        List<MyData> myDatas = myDataHolder.getList();
+        myDatas = myDataHolder.getList();
         if (adapter == null){
             adapter = new RoundPointsAdapter(myDatas);
             resView.setAdapter(adapter);
@@ -53,20 +65,46 @@ public class FragCountRoundCenter extends Fragment implements View.OnClickListen
             adapter.notifyDataSetChanged();
         }
     }
+    private void createButtons(View v){
+        add = (Button)v.findViewById(R.id.add_pint);
+        add.setOnClickListener(this);
+        count = (Button)v.findViewById(R.id.count_round_count_btn);
+        count.setOnClickListener(this);
+    }
+
 
     @Override
     public void onResume() {
         super.onResume();
         updateUI();
     }
-
+    protected void goToActivity() {
+        myDataHolder.addItem();
+        MyData myData = myDataHolder.getLastItem();
+        Intent intent = ActivityItemPointR.newIntent(getActivity(),myData.getId());
+        startActivity(intent);
+    }
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case (R.id.add_pint) :
-                Intent intent2 = new Intent(getActivity(), ActivityListPointR.class);
-                startActivity(intent2);
+                goToActivity();
+                break;
+            case (R.id.count_round_count_btn) :
+                ViewResult.setText(count());
+                break;
         }
+    }
+    public String count(){
+        String result = "";
+        List<MySimplePoint> simp = new ArrayList<>();
+        for(MyData myData : myDatas){
+            simp.add((MySimplePoint) myData);
+        }
+        if(simp.size()>0){
+            result = countCenter.getResult(simp);
+        }
+        return result;
     }
     private class RoundPointsHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private MyData myData;

@@ -14,15 +14,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.geodezhelper.ActivityMain;
 import com.example.geodezhelper.R;
 import com.example.geodezhelper.interfaces.forFrag.ListFrag;
+import com.example.geodezhelper.interfaces.forbeans.MyBaseLineData;
 import com.example.geodezhelper.interfaces.forbeans.MyData;
 import com.example.geodezhelper.interfaces.forData.MyDataHolder;
+import com.example.geodezhelper.interfaces.forbeans.MyNivData;
 
 import java.util.List;
 
 public class FragmentListBL extends ListFrag {
     private RecyclerView resView;
     private BaseLineAdapter baseLineAdapter;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
        View view = inflater.inflate(R.layout.fragment_recycle_view,container,false);
@@ -45,7 +46,7 @@ public class FragmentListBL extends ListFrag {
 
     private class BaseLineHolder extends ListFrag.MyDataHol {
         private TextView NameView;
-        private MyData myData;
+        private MyBaseLineData myData;
 
         public BaseLineHolder(LayoutInflater inflater, ViewGroup parent){
             super(inflater,parent);
@@ -55,7 +56,7 @@ public class FragmentListBL extends ListFrag {
 
         }
         public void bind(MyData bl){
-            myData = bl;
+            myData = (Baseline)bl;
             NameView.setText(myData.getName());
         }
 
@@ -67,8 +68,10 @@ public class FragmentListBL extends ListFrag {
 
         @Override
         public boolean onLongClick(View v) {
-            MyDataHolder myDataHolder = DataBaseLine.getInstance(getActivity());
-            myDataHolder.setCurId(myData.getId());
+            CurrentBL currentBL = CurrentBL.getInstance();
+            currentBL.setName(myData.getName());
+            currentBL.setPone(myData.getPone());
+            currentBL.setPtwo(myData.getPtwo());
             Intent intent2 = new Intent(getActivity(), ActivityMain.class);
             startActivity(intent2);
             return true;

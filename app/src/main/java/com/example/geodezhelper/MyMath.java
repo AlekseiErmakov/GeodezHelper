@@ -1,8 +1,10 @@
 package com.example.geodezhelper;
 
-import com.example.geodezhelper.BL.Baseline;
+import com.example.geodezhelper.interfaces.forbeans.MyBaseLineData;
 import com.example.geodezhelper.Pojo.NivPoint;
 import com.example.geodezhelper.Pojo.Point;
+import com.example.geodezhelper.interfaces.forbeans.MyBaseLineData;
+import com.example.geodezhelper.interfaces.forbeans.MySimplePoint;
 import com.example.geodezhelper.round.RoundCenter;
 import com.example.geodezhelper.round.RoundPoint;
 
@@ -15,7 +17,7 @@ public class MyMath {
         private static Double pTwoRep;
         private static final int kv=2;
 
-        public static void coords(Baseline LN, Point P){
+        public static void coords(MyBaseLineData LN, Point P){
             x1=LN.getPone().getX();
             y1=LN.getPone().getY();
             h1=LN.getPone().getH();
@@ -36,7 +38,7 @@ public class MyMath {
              pTwoEl = pTwo.getHeight();
         }
 
-        public static Double blRad(Baseline LN,Point P) {
+        public static Double blRad(MyBaseLineData LN, Point P) {
             if (LN!=null && P!=null){
                 coords(LN,P);
             }
@@ -51,7 +53,7 @@ public class MyMath {
             return result;
         }
 
-        public static Double blDev(Baseline LN,Point P) {
+        public static Double blDev(MyBaseLineData LN,Point P) {
             if (LN!=null && P!=null){
                 coords(LN,P);
             }
@@ -62,7 +64,7 @@ public class MyMath {
             return result;
         }
 
-        public static Double blGorizontalLength(Baseline LN,Point P) {
+        public static Double blGorizontalLength(MyBaseLineData LN,Point P) {
             if (LN!=null && P!=null){
                 coords(LN,P);
             }
@@ -73,7 +75,7 @@ public class MyMath {
             return result;
         }
 
-        public static Double blAbsolutLength(Baseline LN,Point P){
+        public static Double blAbsolutLength(MyBaseLineData LN,Point P){
             if (LN!=null && P!=null){
                 coords(LN,P);
             }
@@ -85,7 +87,7 @@ public class MyMath {
             return result;
         }
 
-        public static Double blDeltaH(Baseline LN,Point P){
+        public static Double blDeltaH(MyBaseLineData LN,Point P){
             if (LN!=null && P!=null){
                 coords(LN,P);
             }
@@ -135,22 +137,22 @@ public class MyMath {
             }
             return result;
         }
-        private static RoundCenter countCenter(RoundPoint p1, RoundPoint p2, RoundPoint p3){
+        public static MySimplePoint countCenter(MySimplePoint p1, MySimplePoint p2, MySimplePoint p3){
             Double x1 = p1.getX();
             Double y1 = p1.getY();
             Double x2 = p2.getX();
             Double y2 = p2.getY();
             Double x3 = p3.getX();
             Double y3 = p3.getY();
-            RoundCenter rc = null;
+            MySimplePoint rc = null;
 
-            Double A = x2 - x1;
-            Double B = y2 - y1;
-            Double C = x3 - x1;
-            Double D = y3 - y1;
-            Double E = A * (x1 + x2) + B * (y1 + y2);
-            Double F = C * (x1 + x3) + D * (y1 + y3);
-            Double G = 2 * (A * (y3 - y2) - B * (x3 - x2));
+            double A = x2 - x1;
+            double B = y2 - y1;
+            double C = x3 - x1;
+            double D = y3 - y1;
+            double E = A * (x1 + x2) + B * (y1 + y2);
+            double F = C * (x1 + x3) + D * (y1 + y3);
+            double G = 2 * (A * (y3 - y2) - B * (x3 - x2));
             if (G == 0){
                 return rc;
             } else {
@@ -163,6 +165,14 @@ public class MyMath {
                rc.setY(y);
                return rc;
             }
+        }
+        public static double countDim(MySimplePoint pOne, MySimplePoint pTwo){
+            Double x1 = pOne.getX();
+            Double y1 = pOne.getY();
+            Double x2 = pTwo.getX();
+            Double y2 = pTwo.getY();
+
+            return Math.sqrt(Math.pow((x2-x1),kv)+Math.pow((y2-y1),kv));
         }
 
 

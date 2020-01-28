@@ -12,17 +12,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.geodezhelper.ActivityMain;
 import com.example.geodezhelper.BL.ActivityListBL;
-import com.example.geodezhelper.BL.Baseline;
+import com.example.geodezhelper.BL.CountInBL;
+import com.example.geodezhelper.BL.CurrentBL;
 import com.example.geodezhelper.BL.DataBaseLine;
-import com.example.geodezhelper.Pojo.BaseForCount;
-import com.example.geodezhelper.Pojo.NivPoint;
 import com.example.geodezhelper.Pojo.Point;
 import com.example.geodezhelper.R;
-import com.example.geodezhelper.round.ActivityListPointR;
-
-import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -45,8 +40,8 @@ public class FragCountPointParams extends Fragment implements View.OnClickListen
     private Button count;
     private Map<EditText, View> views;
     private DataBaseLine dataBaseLine;
-    private Baseline currentBL;
-    StringResult stringResult;
+    private CurrentBL currentBL;
+    CountInBL countInBL;
 
 
     View view;
@@ -57,7 +52,7 @@ public class FragCountPointParams extends Fragment implements View.OnClickListen
         view = inflater.inflate(R.layout.fragment_count_point_params, null);
         views = new HashMap<>();
         dataBaseLine = DataBaseLine.getInstance(getActivity());
-        currentBL = (Baseline) dataBaseLine.getCurItem();
+        currentBL = CurrentBL.getInstance();
 
         addEditTexts();
         addViews();
@@ -81,16 +76,12 @@ public class FragCountPointParams extends Fragment implements View.OnClickListen
         hView = (TextView) view.findViewById(R.id.view_h_report);
         hView.setVisibility(View.INVISIBLE);
         views.put(hText, hView);
+
         radView = (TextView) view.findViewById(R.id.view_rad_report);
-
         gor_lengthView = (TextView) view.findViewById(R.id.view_gor_length_report);
-
         lengthView = (TextView) view.findViewById(R.id.view_length_report);
-
         devView = (TextView) view.findViewById(R.id.view_dev_report);
-
         heightView = (TextView) view.findViewById(R.id.view_height_report);
-
     }
 
     private void addButtons() {
@@ -107,14 +98,20 @@ public class FragCountPointParams extends Fragment implements View.OnClickListen
 
     private Double checkCoord(EditText editText) {
         Double result = null;
+        String str = getAvailStr(editText);
         try {
-            result = Double.parseDouble(editText.getText().toString());
+            result = Double.parseDouble(str);
             views.get(editText).setVisibility(View.INVISIBLE);
             return result;
         } catch (Exception ex) {
             views.get(editText).setVisibility(View.VISIBLE);
             return result;
         }
+    }
+    private String getAvailStr(EditText text){
+        String result = text.getText().toString();
+        result = result.replaceAll(",",".");
+        return result;
     }
 
     private void countParams() {
@@ -123,14 +120,11 @@ public class FragCountPointParams extends Fragment implements View.OnClickListen
         Double h = checkCoord(hText);
         if (x != null && y != null && h != null) {
             Point point = new Point(x, y, h);
-            currentBL = (Baseline) dataBaseLine.getCurItem();
-            if (currentBL != null) {
-                System.out.println(currentBL.getName());
-                stringResult = new StringResult(currentBL, point);
+            if (currentBL.getPone() != null && currentBL != null) {
+                countInBL = new CountInBL(currentBL, point);
                 updateView();
             } else {
-                stringResult = new StringResult();
-                System.out.println("пизда");
+                countInBL = new CountInBL();
                 updateView();
             }
         }
@@ -138,11 +132,11 @@ public class FragCountPointParams extends Fragment implements View.OnClickListen
     }
 
     private void updateView() {
-        radView.setText(stringResult.getRadius());
-        gor_lengthView.setText(stringResult.getGorizontalLength());
-        lengthView.setText(stringResult.getAbsolutLength());
-        devView.setText(stringResult.getDeviation());
-        heightView.setText(stringResult.getDeltaH());
+        radView.setText(countInBL.getRadius());
+        gor_lengthView.setText(countInBL.getGorizontalLength());
+        lengthView.setText(countInBL.getAbsolutLength());
+        devView.setText(countInBL.getDeviation());
+        heightView.setText(countInBL.getDeltaH());
     }
 
     @Override

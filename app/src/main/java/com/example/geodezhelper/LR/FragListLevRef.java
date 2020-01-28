@@ -70,8 +70,9 @@ public class FragListLevRef extends ListFrag {
         }
         @Override
         public boolean onLongClick(View v) {
-            MyDataHolder myDataHolder = DataLevRef.getInstance(getActivity());
-            myDataHolder.setCurId(myNivData.getId());
+            CurrentLR currentLR = CurrentLR.getInstance();
+            currentLR.setHeight(myNivData.getHeight());
+            currentLR.setName(myNivData.getName());
             Intent intent2 = new Intent(getActivity(), ActivityMain.class);
             startActivity(intent2);
             return true;

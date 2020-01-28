@@ -12,7 +12,9 @@ public class Point implements WordHolder {
     private String name,fromSdr,Code;
     private Double x,y,h;
     public Point(){
-
+        x = 0.0;
+        y = 0.0;
+        h = 0.0;
     }
     public Point(String fromSdr){
         if (fromSdr!=null && !fromSdr.equals("")){

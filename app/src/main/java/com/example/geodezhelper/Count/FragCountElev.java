@@ -13,13 +13,20 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.example.geodezhelper.Count.count.CountHeight;
+import com.example.geodezhelper.Count.count.CountInElev;
+import com.example.geodezhelper.Count.count.CountReport;
 import com.example.geodezhelper.LR.ActivityListLevRef;
+import com.example.geodezhelper.LR.CurrentLR;
 import com.example.geodezhelper.LR.DataLevRef;
 import com.example.geodezhelper.R;
 import com.example.geodezhelper.StringUtils;
 import com.example.geodezhelper.interfaces.forData.MyDataHolder;
 import com.example.geodezhelper.interfaces.forbeans.MyNivData;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class FragCountElev extends Fragment implements View.OnClickListener {
@@ -30,108 +37,118 @@ public class FragCountElev extends Fragment implements View.OnClickListener {
     TextView Title,ResultText,Result,RphAlert,RprAlert,PrAlert;
     RadioButton FirstRB,SecondRB;
     TextInputLayout PointLayout;
-    MyDataHolder myDataHolder;
-
-
+    MyNivData myNivData;
+    Map<EditText,TextView> views;
+    CountInElev count;
+    CountHeight countHeight;
+    CountReport countReport;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_count_point_elevation,container,false);
-        myDataHolder = DataLevRef.getInstance(getActivity());
-        Title = (TextView)view.findViewById(R.id.text_view_HeightCount);
-
-        RpHeight= (EditText)view.findViewById(R.id.RpHeight1);
-        RpHeight.setText(useDefaultHeight());
-
-        RpRepot = (EditText)view.findViewById(R.id.RpReport1);
-        PointReport = (EditText)view.findViewById(R.id.PointReport1);
-
-        CountPointHeight =(Button)view.findViewById(R.id.count_point_height);
-        chooseLevRef = (Button)view.findViewById(R.id.choose_lr);
-
-        ResultText =(TextView)view.findViewById(R.id.text_result);
-        Result =(TextView)view.findViewById(R.id.result_Point_height);
-        RphAlert=(TextView)view.findViewById(R.id.view_HeightRpReport);
-        RprAlert=(TextView)view.findViewById(R.id.view_RpReport1);
-        PrAlert=(TextView)view.findViewById(R.id.view_Report_Point);
-
-        FirstRB=(RadioButton)view.findViewById(R.id.first);
-        FirstRB.setOnClickListener(this);
-        SecondRB=(RadioButton)view.findViewById(R.id.second);
-        SecondRB.setOnClickListener(this);
-
-        RphAlert.setVisibility(View.INVISIBLE);
-        RprAlert.setVisibility(View.INVISIBLE);
-        PrAlert.setVisibility(View.INVISIBLE);
-        PointLayout= (TextInputLayout)view.findViewById(R.id.point);
-
-
-        CountPointHeight.setOnClickListener(this);
-        chooseLevRef.setOnClickListener(this);
-        Result.setVisibility(View.INVISIBLE);
+        createEditText(view);
+        createTextView(view);
+        createRadio(view);
+        createButton(view);
+        views = getViews();
+        updateData();
+        countHeight = new CountHeight();
+        countReport = new CountReport();
+        count = countHeight;
         return view;
     }
-    public String useDefaultHeight(){
+    private void createEditText(View view){
+        RpHeight= (EditText)view.findViewById(R.id.RpHeight1);
+        RpRepot = (EditText)view.findViewById(R.id.RpReport1);
+        PointReport = (EditText)view.findViewById(R.id.PointReport1);
+    }
+    private void createTextView(View view){
+        RphAlert=(TextView)view.findViewById(R.id.view_HeightRpReport);
+        RphAlert.setVisibility(View.INVISIBLE);
+        RprAlert=(TextView)view.findViewById(R.id.view_RpReport1);
+        RprAlert.setVisibility(View.INVISIBLE);
+        PrAlert=(TextView)view.findViewById(R.id.view_Report_Point);
+        PrAlert.setVisibility(View.INVISIBLE);
 
-        MyNivData myNivData = (MyNivData) myDataHolder.getCurItem();
+        Result =(TextView)view.findViewById(R.id.result_Point_height);
+        Result.setVisibility(View.INVISIBLE);
+    }
+    private void createButton(View view){
+        CountPointHeight =(Button)view.findViewById(R.id.count_point_height);
+        CountPointHeight.setOnClickListener(this);
+
+        chooseLevRef = (Button)view.findViewById(R.id.choose_lr);
+        chooseLevRef.setOnClickListener(this);
+    }
+    private void createRadio(View view){
+        FirstRB=(RadioButton)view.findViewById(R.id.first);
+        FirstRB.setOnClickListener(this);
+
+        SecondRB=(RadioButton)view.findViewById(R.id.second);
+        SecondRB.setOnClickListener(this);
+    }
+    private Map<EditText,TextView> getViews(){
+        Map<EditText, TextView> views = new HashMap<>();
+        views.put(RpHeight,RphAlert);
+        views.put(RpRepot,RprAlert);
+        views.put(PointReport,PrAlert);
+
+        return views;
+    }
+
+    private void updateData(){
+        myNivData = CurrentLR.getInstance();
         String result = "";
-        if (myNivData != null){
-            result = StringUtils.coordTxt( myNivData .getHeight());
+        if (myNivData.getHeight() != null){
+            result = StringUtils.coordTxt( myNivData.getHeight());
         }
+        RpHeight.setText(result);
+    }
+
+    public String countHeiht(){
+        String result="";
+        Double rpH = chekCoord(RpHeight);
+        Double rpR = chekCoord(RpRepot);
+        Double pR =  chekCoord(PointReport);
+        result = count.getResult(rpH,rpR,pR);
         return result;
     }
 
-    public String countHeiht(int num){
-        String result="";
-        Double rpH = myParseDouble(RpHeight,RphAlert);
-        Double rpR = myParseDouble(RpRepot,RprAlert);
-        Double pR =  myParseDouble(PointReport,PrAlert);
-        StringResult strResult = new StringResult();
-            switch (num){
-                case(1):
-                    result = strResult.getPointEl(rpH,rpR,pR);
-                    break;
-                case(2):
-                    result = strResult.getPointReport(rpH,rpR,pR);
-                    break;
-            }
-           return result;
-    }
-
-    public Double myParseDouble(EditText editText,TextView view){
-        view.setVisibility(View.INVISIBLE);
-        String string = editText.getText().toString();
-        string=string.replaceAll(",",".");
+    public Double chekCoord(EditText editText){
         Double result = null;
-        if (string.equals("")){
-            view.setVisibility(View.VISIBLE);
-        }else {
-            try {
-                result=Double.parseDouble(string);
-            }catch (NumberFormatException ex){
-                view.setVisibility(View.VISIBLE);
-            }
+        String string = getAvailStr(editText);
+        try {
+            result = Double.parseDouble(string);
+            views.get(editText).setVisibility(View.INVISIBLE);
+            return result;
+        } catch (Exception ex) {
+            views.get(editText).setVisibility(View.VISIBLE);
+            return result;
         }
+    }
+    private String getAvailStr(EditText text){
+        String result = text.getText().toString();
+        result = result.replaceAll(",",".");
         return result;
     }
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.count_point_height:
-                Result.setText(countHeiht(chooseMethod));
+                Result.setText(countHeiht());
                 Result.setVisibility(View.VISIBLE);
                 break;
             case (R.id.first):
                 Title.setText(R.string.Title_text_Count_Point_Height);
                 PointLayout.setHint("Отчет по рейке на точке,мм");
                 ResultText.setText(R.string.Result_point_M);
-                chooseMethod=1;
+                count = countHeight;
                 break;
             case (R.id.second):
                 Title.setText(R.string.Title_text_Count_Point_Report);
                 PointLayout.setHint("Отметка точки,м");
                 ResultText.setText(R.string.Result_point_MM);
-                chooseMethod=2;
+                count = countReport;
                 break;
             case (R.id.choose_lr):
                 Intent intent2 = new Intent(getActivity(), ActivityListLevRef.class);

@@ -24,11 +24,3 @@ public class ActivityListPointR extends SingleFragmentListActivity {
         return new FragListPointR();
     }
 }
-//  @Override
-//    protected void goToActivity() {
-//        DataLevRef levRefData = DataLevRef.getInstance(this);
-//        levRefData.addItem();
-//        MyData myData = levRefData.getLastItem();
-//        Intent intent = ActivityItemLevRef.newIntent(this, myData.getId());
-//        startActivity(intent);
-//    }
