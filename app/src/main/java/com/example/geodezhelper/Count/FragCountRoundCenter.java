@@ -1,6 +1,7 @@
 package com.example.geodezhelper.Count;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -113,6 +114,7 @@ public class FragCountRoundCenter extends Fragment implements View.OnClickListen
         public RoundPointsHolder(LayoutInflater inflater,ViewGroup parent){
             super(inflater.inflate(R.layout.view_item_lev_ref_list,parent,false));
             NameView = (TextView)itemView.findViewById(R.id.lev_ref_name);
+
             itemView.setOnClickListener(this);
         }
         public void bind(MyData myData){

@@ -5,6 +5,9 @@ import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
+import com.example.geodezhelper.interfaces.forData.MyDataHolder;
+import com.example.geodezhelper.round.DataPointR;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -23,5 +26,6 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
         assertEquals("com.example.geodezhelper", appContext.getPackageName());
+        MyDataHolder myDataHolder = DataPointR.getInstance(appContext);
     }
 }

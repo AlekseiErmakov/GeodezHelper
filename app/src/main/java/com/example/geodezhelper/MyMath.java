@@ -153,18 +153,20 @@ public class MyMath {
             double E = A * (x1 + x2) + B * (y1 + y2);
             double F = C * (x1 + x3) + D * (y1 + y3);
             double G = 2 * (A * (y3 - y2) - B * (x3 - x2));
-            if (G == 0){
-                return rc;
-            } else {
-                rc = new RoundCenter();
-                rc.setName(p1.getName() + " " + p2.getName() + " " + p3.getName());
 
-               Double x = (D * E - B * F) / G;
-               Double y = (A * F - C * E) / G;
-               rc.setX(x);
-               rc.setY(y);
+             if (G == 0){
+                 return rc;
+             }else {
+                 rc = new RoundCenter();
+                 rc.setName(p1.getName() + " " + p2.getName() + " " + p3.getName());
+                 Double x = (D * E - B * F) / G;
+                 Double y = (A * F - C * E) / G;
+                 rc.setX(x);
+                 rc.setY(y);
+             }
+
                return rc;
-            }
+
         }
         public static double countDim(MySimplePoint pOne, MySimplePoint pTwo){
             Double x1 = pOne.getX();
