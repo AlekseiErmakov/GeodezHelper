@@ -1,14 +1,12 @@
-package com.example.geodezhelper.Pojo;
-
-import androidx.annotation.NonNull;
+package com.example.geodezhelper.Bean;
 
 import com.example.geodezhelper.WordHolder;
+import com.example.geodezhelper.interfaces.forbeans.My3Dpoint;
 
 import java.util.Locale;
 import java.util.UUID;
-import java.util.concurrent.CountDownLatch;
 
-public class Point implements WordHolder {
+public class Point implements WordHolder, My3Dpoint {
     private String name,fromSdr,Code;
     private Double x,y,h;
     public Point(){
@@ -72,6 +70,11 @@ public class Point implements WordHolder {
         y=Double.parseDouble(list[1]);
         h=Double.parseDouble(list[2]);
         }
+    }
+
+    @Override
+    public UUID getId() {
+        return null;
     }
 
     public String getName() {

@@ -1,15 +1,11 @@
 package com.example.geodezhelper.BL;
 
-import com.example.geodezhelper.BL.Baseline;
-import com.example.geodezhelper.BL.CurrentBL;
 import com.example.geodezhelper.MyMath;
-import com.example.geodezhelper.Pojo.NivPoint;
-import com.example.geodezhelper.Pojo.Point;
+import com.example.geodezhelper.Bean.NivPoint;
+import com.example.geodezhelper.Bean.Point;
 import com.example.geodezhelper.StringUtils;
 import com.example.geodezhelper.WordHolder;
 import com.example.geodezhelper.interfaces.forbeans.MyBaseLineData;
-
-import java.util.Locale;
 
 public class CountInBL implements WordHolder {
     private MyBaseLineData baseline;
@@ -32,15 +28,7 @@ public class CountInBL implements WordHolder {
           this.baseline = baseline;
           this.point = point;
     }
-    public CountInBL(NivPoint nivPointOne, NivPoint nivPointTwo){
-        this.nivPointOne = nivPointOne;
-        this.nivPointTwo = nivPointTwo;
-    }
-    public CountInBL(NivPoint nivPointOne, NivPoint nivPointTwo, Double pRep){
-        this.nivPointOne = nivPointOne;
-        this.nivPointTwo = nivPointTwo;
-        this.pRep = pRep;
-    }
+
 
     public void setPoint(Point point) {
         this.point = point;

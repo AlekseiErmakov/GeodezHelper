@@ -3,7 +3,7 @@ package com.example.geodezhelper.LR;
 import android.content.Context;
 
 
-import com.example.geodezhelper.Pojo.NivPoint;
+import com.example.geodezhelper.Bean.NivPoint;
 import com.example.geodezhelper.interfaces.forData.DataConteiner;
 import com.example.geodezhelper.interfaces.forbeans.MyData;
 

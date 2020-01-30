@@ -5,7 +5,7 @@ import android.content.Intent;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.geodezhelper.Pojo.NivPoint;
+import com.example.geodezhelper.Bean.NivPoint;
 import com.example.geodezhelper.interfaces.forActivity.SingleFragmentItemActivity;
 
 import java.util.List;

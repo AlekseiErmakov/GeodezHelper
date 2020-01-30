@@ -1,7 +1,6 @@
 package com.example.geodezhelper.round;
 
 import com.example.geodezhelper.MyMath;
-import com.example.geodezhelper.Pojo.Point;
 import com.example.geodezhelper.StringUtils;
 import com.example.geodezhelper.interfaces.forbeans.MySimplePoint;
 
@@ -32,23 +31,26 @@ public class CountInRound {
                 "Cредний радиус: " + StringUtils.coordTxt(length);
     }
     private MySimplePoint getMidCenter(){
-        int count = 0;
        for (int i = 0; i < points.size()-2; i++){
-            for (int j = i+1; j < points.size()-1;j++){
-                for (int k = j+1; k < points.size(); k++){
-                    RoundCenter rc = (RoundCenter) MyMath.countCenter(points.get(0),points.get(j),points.get(k));
-                    if (rc != null)
-                    centeres.add(rc);
-                }
-            }
-
+           if (points.get(i).getX() != null && points.get(i).getY() != null){
+               for (int j = i+1; j < points.size()-1;j++){
+                   if (points.get(j).getX() != null && points.get(j).getY() != null){
+                       for (int k = j+1; k < points.size(); k++){
+                           if (points.get(k).getX() != null && points.get(k).getY()!=null){
+                               RoundCenter rc = (RoundCenter) MyMath.countCenter(points.get(i),points.get(j),points.get(k));
+                               centeres.add(rc);
+                           }
+                       }
+                   }
+               }
+           }
         }
+        System.out.println(centeres.size());
         MySimplePoint centre = new RoundCenter();
         Double X = getMidX(centeres);
         Double Y = getMidY(centeres);
         centre.setX(X);
         centre.setY(Y);
-
         return centre;
     }
     private Double getMidX(List<MySimplePoint> centres){
@@ -81,6 +83,7 @@ public class CountInRound {
             if (point != null && point.getX()!= null && point.getY()!=null){
                 countDim += MyMath.countDim(point,center);
                 count++;
+                length.add(MyMath.countDim(point,center));
             }
         }
         return count == 0 ? 0 : countDim/count;

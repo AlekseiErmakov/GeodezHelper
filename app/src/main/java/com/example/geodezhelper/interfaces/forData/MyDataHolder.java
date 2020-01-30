@@ -13,7 +13,6 @@ public interface MyDataHolder {
     void removeItem();
     MyData getItem(UUID id);
     MyData getLastItem();
-    MyData getCurItem();
     void setCurId(UUID id);
 
 }

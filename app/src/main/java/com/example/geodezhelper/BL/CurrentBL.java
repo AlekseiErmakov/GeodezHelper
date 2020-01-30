@@ -1,7 +1,6 @@
 package com.example.geodezhelper.BL;
 
-import com.example.geodezhelper.LR.CurrentLR;
-import com.example.geodezhelper.Pojo.Point;
+import com.example.geodezhelper.Bean.Point;
 import com.example.geodezhelper.interfaces.forbeans.MyBaseLineData;
 
 import java.util.ArrayList;

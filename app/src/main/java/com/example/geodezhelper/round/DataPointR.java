@@ -2,7 +2,6 @@ package com.example.geodezhelper.round;
 
 import android.content.Context;
 
-import com.example.geodezhelper.Pojo.Point;
 import com.example.geodezhelper.interfaces.forData.DataConteiner;
 import com.example.geodezhelper.interfaces.forData.MyDataHolder;
 import com.example.geodezhelper.interfaces.forbeans.MyData;

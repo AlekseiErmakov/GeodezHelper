@@ -2,7 +2,6 @@ package com.example.geodezhelper.interfaces.forData;
 
 import android.content.Context;
 
-import com.example.geodezhelper.Pojo.NivPoint;
 import com.example.geodezhelper.interfaces.forbeans.MyData;
 
 import java.util.List;
@@ -41,16 +40,6 @@ public abstract class DataConteiner implements MyDataHolder {
         return myData;
     }
 
-    @Override
-    public MyData getCurItem() {
-        MyData myCurData = null;
-        for (MyData myData : myDataList){
-            if (currentID.equals(myData.getId())){
-                myCurData = myData;
-            }
-        }
-        return myCurData;
-    }
 
     @Override
     public void setCurId(UUID currentID) {

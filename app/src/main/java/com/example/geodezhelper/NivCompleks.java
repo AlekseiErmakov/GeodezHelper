@@ -1,11 +1,9 @@
 package com.example.geodezhelper;
 
-import com.example.geodezhelper.Pojo.NivDim;
-import com.example.geodezhelper.Pojo.NivPoint;
-import com.example.geodezhelper.Pojo.NivStation;
+import com.example.geodezhelper.Bean.NivPoint;
+import com.example.geodezhelper.Bean.NivStation;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class NivCompleks {
     private static NivCompleks nivCompleks;

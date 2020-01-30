@@ -1,12 +1,10 @@
 package com.example.geodezhelper;
 
 import com.example.geodezhelper.interfaces.forbeans.MyBaseLineData;
-import com.example.geodezhelper.Pojo.NivPoint;
-import com.example.geodezhelper.Pojo.Point;
-import com.example.geodezhelper.interfaces.forbeans.MyBaseLineData;
+import com.example.geodezhelper.Bean.NivPoint;
+import com.example.geodezhelper.Bean.Point;
 import com.example.geodezhelper.interfaces.forbeans.MySimplePoint;
 import com.example.geodezhelper.round.RoundCenter;
-import com.example.geodezhelper.round.RoundPoint;
 
 public class MyMath {
 

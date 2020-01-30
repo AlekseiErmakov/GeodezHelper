@@ -16,7 +16,7 @@ import com.example.geodezhelper.BL.ActivityListBL;
 import com.example.geodezhelper.BL.CountInBL;
 import com.example.geodezhelper.BL.CurrentBL;
 import com.example.geodezhelper.BL.DataBaseLine;
-import com.example.geodezhelper.Pojo.Point;
+import com.example.geodezhelper.Bean.Point;
 import com.example.geodezhelper.R;
 
 import java.util.HashMap;

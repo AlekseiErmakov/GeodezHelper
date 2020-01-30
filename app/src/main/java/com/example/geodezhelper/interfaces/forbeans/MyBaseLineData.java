@@ -1,6 +1,6 @@
 package com.example.geodezhelper.interfaces.forbeans;
 
-import com.example.geodezhelper.Pojo.Point;
+import com.example.geodezhelper.Bean.Point;
 
 import java.util.ArrayList;
 

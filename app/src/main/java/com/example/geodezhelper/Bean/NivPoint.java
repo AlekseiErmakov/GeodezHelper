@@ -1,4 +1,4 @@
-package com.example.geodezhelper.Pojo;
+package com.example.geodezhelper.Bean;
 
 import com.example.geodezhelper.interfaces.forbeans.MyNivData;
 
