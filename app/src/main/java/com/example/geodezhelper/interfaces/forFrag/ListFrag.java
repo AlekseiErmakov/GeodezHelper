@@ -34,7 +34,6 @@ public abstract class ListFrag extends Fragment {
             this.myDatas=myDatas;
         }
 
-
         @Override
         public void onBindViewHolder(@NonNull MyDataHol holder, int position) {
             MyData myData = myDatas.get(position);

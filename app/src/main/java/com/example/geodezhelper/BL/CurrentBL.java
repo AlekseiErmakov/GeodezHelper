@@ -33,21 +33,12 @@ public class CurrentBL implements MyBaseLineData {
 
     @Override
     public void setPone(Point point) {
-        if (point != null){
            this.pOne = point;
-        }
     }
 
     @Override
     public void setPtwo(Point point) {
-        if (point != null){
-           this.pTwo = point;
-        }
-    }
-
-    @Override
-    public ArrayList<Double> getCoords() {
-        return null;
+        this.pTwo = point;
     }
 
     @Override

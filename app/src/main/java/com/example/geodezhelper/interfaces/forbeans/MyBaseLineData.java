@@ -9,5 +9,5 @@ public interface MyBaseLineData extends MyData {
     Point getPtwo();
     void setPone(Point point);
     void setPtwo(Point point);
-    ArrayList<Double> getCoords();
+
 }
